@@ -22,7 +22,7 @@ void Map::addStage(const Stage *stage) {
         width = stageWidth;
     if (height < stageHeight)
         height = stageHeight;
-    deth++;
+    depth++;
     stages.push_back(*stage);
 }
 

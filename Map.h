@@ -11,7 +11,7 @@
 class Map : public Stringable {
     std::vector <Stage> stages;
     Stage *activeStage = nullptr;
-    int width, height, deth;
+    int width, height, depth;
 public:
 
     Map();

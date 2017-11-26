@@ -17,6 +17,7 @@ public:
     void addItem(Item *);
 
     Item getItem(const int i) const;
+
     Item removeItem(const int i);
 
     const std::string toString() const override;

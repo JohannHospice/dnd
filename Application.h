@@ -10,10 +10,10 @@
 #include <bits/basic_string.h>
 #include "ApplicationListener.h"
 #include <string>
+
 class Application {
     static Application *self = nullptr;
     static std::vector<ApplicationListener> listeners;
-
     ApplicationListener *activeListener;
 public:
 
@@ -23,7 +23,7 @@ public:
 
     void mainLoop() const;
 
-    static Application * getInstance();
+    static Application *getInstance();
 
     void setActiveListener(const int i);
 };
