@@ -1,20 +1,23 @@
-#ifndef GAME_H
-#define GAME_H
+#ifndef PLAYSTATE_H
+#define PLAYSTATE_H
 
 #include "HumanActor.h"
 #include "Dungeon.h"
+#include "GameState.h"
+
 class GameMemento;
 
-class Game
+class PlayState: public GameState
 {
     public:
-        Game();
-        virtual ~Game();
+        PlayState();
+        virtual ~PlayState();
 
         Dungeon * Getdungeon() { return dungeon; }
         void Setdungeon(Dungeon * val) { dungeon = val; }
         HumanActor * Gethuman() { return human; }
         void Sethuman(HumanActor * val) { human = val; }
+        
         GameMemento *save() const;
         restore(const GameMemento memento);
     protected:
@@ -24,4 +27,4 @@ class Game
         HumanActor * human;
 };
 
-#endif // GAME_H
+#endif // PLAYSTATE_H

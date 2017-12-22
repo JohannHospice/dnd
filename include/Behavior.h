@@ -9,7 +9,7 @@ class Behavior
     public:
         virtual ~Behavior();
 
-        virtual void act(Actor actor, Stage stage) = 0;
+        virtual void act(Stage stage) = 0;
 
     protected:
 

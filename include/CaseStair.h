@@ -1,10 +1,10 @@
 #ifndef CaseStair_H
 #define CaseStair_H
 
-#include <CarryCase.h>
+#include "CaseCarry.h"
 
 
-class CaseStair : public CarryCase
+class CaseStair : public CaseCarry
 {
     public:
         CaseStair();

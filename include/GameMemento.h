@@ -2,9 +2,9 @@
 #define GAMEMEMENTO_H
 
 
-#include "HumanActor.h"
+#include "ActorHuman.h"
 #include "Dungeon.h"
-#include "Game.h"
+
 class GameMemento
 {
     public:
@@ -13,14 +13,14 @@ class GameMemento
 
         Dungeon * Getdungeon() { return m_dungeon; }
         void Setdungeon(Dungeon * val) { m_dungeon = val; }
-        HumanActor * Gethuman() { return human; }
-        void Sethuman(HumanActor * val) { human = val; }
+        ActorHuman * Gethuman() { return human; }
+        void Sethuman(ActorHuman * val) { human = val; }
 
     protected:
 
     private:
         Dungeon * m_dungeon;
-        HumanActor * human;
+        ActorHuman * human;
 };
 
 #endif // GAMEMEMENTO_H
