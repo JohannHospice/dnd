@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="DnD" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="Debug">
+				<Option output="bin/Debug/DnD" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Debug/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-g" />
+					<Add directory="include" />
+				</Compiler>
+			</Target>
+			<Target title="Release">
+				<Option output="bin/Release/DnD" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Release/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-O2" />
+					<Add directory="include" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+				</Linker>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-Wall" />
+			<Add option="-fexceptions" />
+		</Compiler>
+		<Unit filename="include/Actor.h" />
+		<Unit filename="include/ActorHuman.h" />
+		<Unit filename="include/ActorMonster.h" />
+		<Unit filename="include/Application.h" />
+		<Unit filename="include/Behavior.h" />
+		<Unit filename="include/Case.h" />
+		<Unit filename="include/CaseCarry.h" />
+		<Unit filename="include/CaseStair.h" />
+		<Unit filename="include/Dungeon.h" />
+		<Unit filename="include/Dynamic.h" />
+		<Unit filename="include/Game.h" />
+		<Unit filename="include/GameMemento.h" />
+		<Unit filename="include/Inventory.h" />
+		<Unit filename="include/Item.h" />
+		<Unit filename="include/Stage.h" />
+		<Unit filename="include/StairCase.h" />
+		<Unit filename="include/Statistic.h" />
+		<Unit filename="include/Vector.h" />
+		<Unit filename="main.cpp" />
+		<Unit filename="src/Actor.cpp" />
+		<Unit filename="src/ActorHuman.cpp" />
+		<Unit filename="src/ActorMonster.cpp" />
+		<Unit filename="src/Application.cpp" />
+		<Unit filename="src/Behavior.cpp" />
+		<Unit filename="src/Case.cpp" />
+		<Unit filename="src/CaseCarry.cpp" />
+		<Unit filename="src/CaseStair.cpp" />
+		<Unit filename="src/Dungeon.cpp" />
+		<Unit filename="src/Dynamic.cpp" />
+		<Unit filename="src/Game.cpp" />
+		<Unit filename="src/GameMemento.cpp" />
+		<Unit filename="src/Inventory.cpp" />
+		<Unit filename="src/Item.cpp" />
+		<Unit filename="src/Stage.cpp" />
+		<Unit filename="src/Statistic.cpp" />
+		<Unit filename="src/Vector.cpp" />
+		<Extensions>
+			<code_completion />
+			<envvars />
+			<debugger />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>
