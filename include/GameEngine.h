@@ -19,7 +19,7 @@ class GameEngine
         void create();
         void dispose();
 
-        void handleEvents();
+        void handleEvent();
         void update();
         void render();
 

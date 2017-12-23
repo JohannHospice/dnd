@@ -69,11 +69,11 @@ void GameEngine::popState()
 		states.back()->resume();
 	}
 }
-
-void GameEngine::handleEvents()
+void GameEngine::handleEvent()
 {
 	// let the state handle events
-	states.back()->handleEvents(this);
+	int event;
+	states.back()->handleEvent(this, event);
 }
 
 void GameEngine::update()

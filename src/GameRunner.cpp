@@ -10,11 +10,11 @@ GameRunner::~GameRunner()
     //dtor
 }
 
-void run(GameState *state) {
+void GameRunner::start(GameState *state) {
     engine->create();
     engine->changeState(state);
     while(engine->running()){
-        engine->handleEvents();
+        engine->handleEvent();
         engine->update();
         engine->render();
     }

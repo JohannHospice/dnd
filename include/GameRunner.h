@@ -2,13 +2,14 @@
 #define GAMERUNNER_H
 
 #include "GameEngine.h"
+
 class GameRunner
 {
     public:
         GameRunner(GameEngine *engine);
         virtual ~GameRunner();
 
-        void run(GameState *state);
+        void start(GameState *state);
     protected:
 
     private:

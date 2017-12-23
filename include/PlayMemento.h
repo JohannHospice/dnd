@@ -1,15 +1,15 @@
-#ifndef GAMEMEMENTO_H
-#define GAMEMEMENTO_H
+#ifndef PLAYMEMENTO_H
+#define PLAYMEMENTO
 
 
 #include "ActorHuman.h"
 #include "Dungeon.h"
 
-class GameMemento
+class PlayMemento
 {
     public:
-        GameMemento();
-        virtual ~GameMemento();
+        PlayMemento();
+        virtual ~PlayMemento();
 
         Dungeon * Getdungeon() { return m_dungeon; }
         void Setdungeon(Dungeon * val) { m_dungeon = val; }
@@ -23,4 +23,4 @@ class GameMemento
         ActorHuman * human;
 };
 
-#endif // GAMEMEMENTO_H
+#endif // PLAYMEMENTO

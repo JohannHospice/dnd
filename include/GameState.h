@@ -14,7 +14,7 @@ class GameState
         virtual void pause() = 0;
         virtual void resume() = 0;
 
-        virtual void handleEvents(GameEngine *game) = 0;
+        virtual void handleEvent(GameEngine *game, int event) = 0;
         virtual void update(GameEngine *game) = 0;
         virtual void render(GameEngine *game) = 0;
 
