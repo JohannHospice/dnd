@@ -1,7 +1,16 @@
 #ifndef STATEMENU_H
 #define STATEMENU_H
 
+#define OPTION_PLAY 0
+#define OPTION_QUIT 1
+
 #include "GameState.h"
+
+#include <string>
+#include <vector>
+
+using namespace std;
+
 
 class StateMenu: public GameState
 {
@@ -27,9 +36,9 @@ class StateMenu: public GameState
 
         static StateMenu m_self;
 
-        int m_cursorPosition;
-
-        int m_optionSize;
+        int m_cursorPosition, m_optionSize;
+        string m_title;
+        vector<string> m_options;
 };
 
 #endif // STATEMENU_H

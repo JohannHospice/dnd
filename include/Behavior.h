@@ -2,18 +2,17 @@
 #define BEHAVIOR_H
 
 #include "Stage.h"
-#include "Actor.h"
+#include "ActorMonster.h"
 
 class Behavior
 {
     public:
-        virtual ~Behavior();
-
-        virtual void act(Stage stage) = 0;
+        virtual void act(Stage *stage) = 0;
 
     protected:
 
     private:
+        ActorMonster * m_actorMonster;
 };
 
 #endif // BEHAVIOR_H

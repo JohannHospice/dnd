@@ -13,6 +13,8 @@ class CaseCarry: public Case
         Dynamic *Getcontent() { return m_content; }
         void Setcontent(Dynamic *val) { m_content = val; }
 
+        bool hasContent(){ return m_content != nullptr; }
+
     protected:
 
     private:

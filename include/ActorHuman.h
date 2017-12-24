@@ -1,7 +1,7 @@
 #ifndef HUMANACTOR_H
 #define HUMANACTOR_H
 
-#include <Actor.h>
+#include "Actor.h"
 #include "Inventory.h"
 
 class ActorHuman : public Actor
@@ -13,6 +13,7 @@ class ActorHuman : public Actor
         Inventory Getinventory() { return m_inventory; }
         void Setinventory(Inventory val) { m_inventory = val; }
 
+        void update(Stage *stage) override;
     protected:
 
     private:

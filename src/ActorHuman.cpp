@@ -9,3 +9,7 @@ ActorHuman::~ActorHuman()
 {
     //dtor
 }
+
+void ActorHuman::update(Stage *stage){
+
+}

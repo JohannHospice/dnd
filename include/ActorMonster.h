@@ -3,6 +3,8 @@
 
 #include "Item.h"
 
+class Behavior;
+
 class ActorMonster
 {
     public:
@@ -16,6 +18,7 @@ class ActorMonster
 
     private:
         Item *m_item;
+        Behavior *behavior;
 };
 
 #endif // MONSTERACTOR_H

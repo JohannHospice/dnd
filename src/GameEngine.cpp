@@ -1,5 +1,6 @@
 #include <stdio.h>
-
+#include <conio.h>
+#include <iostream>
 #include "GameEngine.h"
 #include "GameState.h"
 
@@ -16,7 +17,6 @@ GameEngine::~GameEngine()
 
 void GameEngine::create()
 {
-	printf("GameEngine Init\n");
 	m_running = true;
 }
 
@@ -27,8 +27,6 @@ void GameEngine::dispose()
 		states.back()->dispose();
 		states.pop_back();
 	}
-
-	printf("GameEngine dispose\n");
 }
 
 void GameEngine::changeState(GameState* state)
@@ -73,6 +71,9 @@ void GameEngine::handleEvent()
 {
 	// let the state handle events
 	int event;
+	do {
+        event = getch();
+	} while(event == 224 || event == 0);
 	states.back()->handleEvent(this, event);
 }
 
@@ -84,6 +85,8 @@ void GameEngine::update()
 
 void GameEngine::render()
 {
+    // clear screen
+    system("cls");
 	// let the state draw the screen
 	states.back()->render(this);
 }

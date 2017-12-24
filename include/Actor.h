@@ -6,27 +6,17 @@
 #include "Dynamic.h"
 #include "Statistic.h"
 
-class Behavior;
-
 class Actor : public Dynamic
 {
     public:
-        Actor();
-        virtual ~Actor();
+        Actor(){ };
 
-        std::string Getname() { return name; }
-        void Setname(std::string val) { name = val; }
-        Behavior *Getbehavior() { return behavior; }
-        void Setbehavior(Behavior *val) { behavior = val; }
-        Statistic *Getstatistic() { return statistic; }
-        void Setstatistic(Statistic *val) { statistic = val; }
-        void act(Stage);
+        virtual void update(Stage *stage) = 0;
 
     protected:
 
     private:
         std::string name;
-        Behavior *behavior;
         Statistic *statistic;
 };
 

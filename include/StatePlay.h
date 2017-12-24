@@ -4,10 +4,12 @@
 #include "Dungeon.h"
 #include "GameState.h"
 #include "PlayMemento.h"
+#include "ActorHuman.h"
 
 class StatePlay: public GameState
 {
     public:
+
         void create() override;
         void dispose() override;
 
@@ -22,11 +24,15 @@ class StatePlay: public GameState
         void restore(const PlayMemento memento);
 
         static StatePlay* instance() { return &m_self; }
+
     protected:
         StatePlay() { }
 
     private:
+
         static StatePlay m_self;
+
+        ActorHuman m_actorHuman;
 
         Dungeon * dungeon;
 };

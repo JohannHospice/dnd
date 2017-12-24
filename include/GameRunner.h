@@ -7,7 +7,6 @@ class GameRunner
 {
     public:
         GameRunner(GameEngine *engine);
-        virtual ~GameRunner();
 
         void start(GameState *state);
     protected:

@@ -2,7 +2,8 @@
 #define STAGE_H
 #include "Case.h"
 
-class Actor;
+#include "Dynamic.h"
+
 
 class Stage
 {
@@ -10,17 +11,21 @@ class Stage
         Stage();
         virtual ~Stage();
 
-        Actor *Getactors() { return actors; }
-        void Setactors(Actor *val) { actors = val; }
+        Dynamic *Getactors() { return actors; }
+        void Setactors(Dynamic *val) { actors = val; }
         Case **Getcases() { return cases; }
         void Setcases(Case **val) { cases = val; }
 
-        bool getCase(int i, int j);
+        const Case getCase(const int i, const int j) const;
+
+        bool move(const Dynamic &Dynamic, const int i, const int j);
+
+        bool canMove(const int i, const int j) const;
 
     protected:
 
     private:
-        Actor *actors;
+        Dynamic *actors;
         Case **cases;
 };
 

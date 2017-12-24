@@ -7,7 +7,6 @@ class Dynamic
 {
     public:
         virtual ~Dynamic();
-        virtual void update() = 0;
 
         Vector * getVector() { return m_vector; }
     protected:
