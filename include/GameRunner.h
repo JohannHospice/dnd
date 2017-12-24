@@ -3,16 +3,16 @@
 
 #include "GameEngine.h"
 
-class GameRunner
-{
-    public:
-        GameRunner(GameEngine *engine);
+class GameRunner {
+public:
+    GameRunner(GameEngine *engine);
 
-        void start(GameState *state);
-    protected:
+    void start(GameState *state);
 
-    private:
-        GameEngine *engine;
+protected:
+
+private:
+    GameEngine *engine;
 };
 
 #endif // GAMERUNNER_H

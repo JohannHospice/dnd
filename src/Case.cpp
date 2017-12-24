@@ -1,11 +1,9 @@
 #include "Case.h"
 
-Case::Case()
-{
+Case::Case() {
     //ctor
 }
 
-Case::~Case()
-{
+Case::~Case() {
     //dtor
 }

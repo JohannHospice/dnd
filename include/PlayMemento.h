@@ -5,22 +5,33 @@
 #include "ActorHuman.h"
 #include "Dungeon.h"
 
-class PlayMemento
-{
-    public:
-        PlayMemento();
-        virtual ~PlayMemento();
+class PlayMemento {
+public:
+    PlayMemento();
 
-        Dungeon * Getdungeon() { return m_dungeon; }
-        void Setdungeon(Dungeon * val) { m_dungeon = val; }
-        ActorHuman * Gethuman() { return human; }
-        void Sethuman(ActorHuman * val) { human = val; }
+    virtual ~PlayMemento();
 
-    protected:
+    Dungeon *Getdungeon() {
+        return m_dungeon;
+    }
 
-    private:
-        Dungeon * m_dungeon;
-        ActorHuman * human;
+    void Setdungeon(Dungeon *val) {
+        m_dungeon = val;
+    }
+
+    ActorHuman *Gethuman() {
+        return human;
+    }
+
+    void Sethuman(ActorHuman *val) {
+        human = val;
+    }
+
+protected:
+
+private:
+    Dungeon *m_dungeon;
+    ActorHuman *human;
 };
 
 #endif // PLAYMEMENTO

@@ -4,15 +4,13 @@
 #include "Stage.h"
 #include "ActorMonster.h"
 
-class Behavior
-{
-    public:
-        virtual void act(Stage *stage) = 0;
+class Behavior {
+public:
+    virtual void act(ActorMonster const &monster, Stage const &stage) = 0;
 
-    protected:
+protected:
 
-    private:
-        ActorMonster * m_actorMonster;
+private:
 };
 
 #endif // BEHAVIOR_H

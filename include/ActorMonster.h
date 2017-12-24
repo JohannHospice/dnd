@@ -2,23 +2,31 @@
 #define MONSTERACTOR_H
 
 #include "Item.h"
+#include "Actor.h"
 
 class Behavior;
 
-class ActorMonster
-{
-    public:
-        ActorMonster();
-        virtual ~ActorMonster();
+class ActorMonster: public Actor {
+public:
+    ActorMonster();
 
-        Item *Getitem() { return m_item; }
-        void Setitem(Item *val) { m_item = val; }
+    ~ActorMonster() override;
 
-    protected:
+    Item *Getitem() {
+        return m_item;
+    }
 
-    private:
-        Item *m_item;
-        Behavior *behavior;
+    void Setitem(Item *val) {
+        m_item = val;
+    }
+
+    void update(Stage *stage) override;
+
+protected:
+
+private:
+    Item *m_item;
+    Behavior *m_behavior;
 };
 
 #endif // MONSTERACTOR_H

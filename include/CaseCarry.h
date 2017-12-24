@@ -4,21 +4,28 @@
 #include "Case.h"
 #include "Dynamic.h"
 
-class CaseCarry: public Case
-{
-    public:
-        CaseCarry();
-        virtual ~CaseCarry();
+class CaseCarry : public Case {
+public:
+    CaseCarry();
 
-        Dynamic *Getcontent() { return m_content; }
-        void Setcontent(Dynamic *val) { m_content = val; }
+    virtual ~CaseCarry();
 
-        bool hasContent(){ return m_content != nullptr; }
+    Dynamic *Getcontent() {
+        return m_content;
+    }
 
-    protected:
+    void Setcontent(Dynamic *val) {
+        m_content = val;
+    }
 
-    private:
-        Dynamic *m_content;
+    bool hasContent() {
+        return m_content != nullptr;
+    }
+
+protected:
+
+private:
+    Dynamic *m_content;
 };
 
 #endif // CARRYCASE_H

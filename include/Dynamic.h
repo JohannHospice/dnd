@@ -3,16 +3,18 @@
 
 #include "Vector.h"
 
-class Dynamic
-{
-    public:
-        virtual ~Dynamic();
+class Dynamic {
+public:
+    virtual ~Dynamic();
 
-        Vector * getVector() { return m_vector; }
-    protected:
+    Vector *getVector() {
+        return m_vector;
+    }
 
-    private:
-        Vector *m_vector;
+protected:
+
+private:
+    Vector *m_vector;
 };
 
 #endif // DYNAMIC_H

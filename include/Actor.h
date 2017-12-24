@@ -6,18 +6,17 @@
 #include "Dynamic.h"
 #include "Statistic.h"
 
-class Actor : public Dynamic
-{
-    public:
-        Actor(){ };
+class Actor : public Dynamic {
+public:
+    Actor() {};
 
-        virtual void update(Stage *stage) = 0;
+    virtual void update(Stage *stage) = 0;
 
-    protected:
+protected:
 
-    private:
-        std::string name;
-        Statistic *statistic;
+private:
+    std::string name;
+    Statistic *statistic;
 };
 
 #endif // ACTOR_H

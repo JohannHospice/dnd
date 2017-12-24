@@ -2,35 +2,47 @@
 #define GAMEENGINE_H
 
 #include <vector>
+
 using namespace std;
 
 class GameState;
 
-class GameEngine
-{
-    public:
-        GameEngine();
-        virtual ~GameEngine();
+class GameEngine {
+public:
+    GameEngine();
 
-        void changeState(GameState* state);
-        void pushState(GameState* state);
-        void popState();
+    virtual ~GameEngine();
 
-        void create();
-        void dispose();
+    void changeState(GameState *state);
 
-        void handleEvent();
-        void update();
-        void render();
+    void pushState(GameState *state);
 
-        bool running(){ return m_running; }
-        void quit() { m_running =  false; }
-    protected:
+    void popState();
 
-    private:
-        vector<GameState*> states;
+    void create();
 
-        bool m_running;
+    void dispose();
+
+    void handleEvent();
+
+    void update();
+
+    void render();
+
+    bool running() {
+        return m_running;
+    }
+
+    void quit() {
+        m_running = false;
+    }
+
+protected:
+
+private:
+    vector<GameState *> states;
+
+    bool m_running;
 };
 
 #endif // GAMEENGINE_H

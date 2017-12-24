@@ -6,35 +6,41 @@
 #include "PlayMemento.h"
 #include "ActorHuman.h"
 
-class StatePlay: public GameState
-{
-    public:
+class StatePlay : public GameState {
+public:
 
-        void create() override;
-        void dispose() override;
+    void create() override;
 
-        void pause() override;
-        void resume() override;
+    void dispose() override;
 
-        void handleEvent(GameEngine *game, int event) override;
-        void update(GameEngine *game) override;
-        void render(GameEngine *game) override;
+    void pause() override;
 
-        PlayMemento *save() const;
-        void restore(const PlayMemento memento);
+    void resume() override;
 
-        static StatePlay* instance() { return &m_self; }
+    void handleEvent(GameEngine *game, int event) override;
 
-    protected:
-        StatePlay() { }
+    void update(GameEngine *game) override;
 
-    private:
+    void render(GameEngine *game) override;
 
-        static StatePlay m_self;
+    PlayMemento *save() const;
 
-        ActorHuman m_actorHuman;
+    void restore(const PlayMemento memento);
 
-        Dungeon * dungeon;
+    static StatePlay *instance() {
+        return &m_self;
+    }
+
+protected:
+    StatePlay() {}
+
+private:
+
+    static StatePlay m_self;
+
+    ActorHuman m_actorHuman;
+
+    Dungeon *dungeon;
 };
 
 #endif // STATEPLAY_H

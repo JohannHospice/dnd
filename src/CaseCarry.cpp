@@ -1,11 +1,9 @@
 #include "CaseCarry.h"
 
-CaseCarry::CaseCarry()
-{
+CaseCarry::CaseCarry() {
     //ctor
 }
 
-CaseCarry::~CaseCarry()
-{
+CaseCarry::~CaseCarry() {
     //dtor
 }

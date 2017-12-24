@@ -1,15 +1,15 @@
 #ifndef CASE_H
 #define CASE_H
 
-class Case
-{
-    public:
-        Case();
-        virtual ~Case();
+class Case {
+public:
+    Case();
 
-    protected:
+    virtual ~Case();
 
-    private:
+protected:
+
+private:
 };
 
 #endif // CASE_H

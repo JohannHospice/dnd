@@ -1,11 +1,9 @@
 #include "Inventory.h"
 
-Inventory::Inventory()
-{
+Inventory::Inventory() {
     //ctor
 }
 
-Inventory::~Inventory()
-{
+Inventory::~Inventory() {
     //dtor
 }

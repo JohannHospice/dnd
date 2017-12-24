@@ -3,22 +3,33 @@
 
 #include "Item.h"
 
-class Inventory
-{
-    public:
-        Inventory();
-        virtual ~Inventory();
+class Inventory {
+public:
+    Inventory();
 
-        Item **Getitems() { return m_items; }
-        void Setitem(Item **val) { m_items = val; }
-        int Getlimit() { return limit; }
-        void Setlimit(int val) { limit = val; }
+    virtual ~Inventory();
 
-    protected:
+    Item **Getitems() {
+        return m_items;
+    }
 
-    private:
-        Item **m_items;
-        int limit;
+    void Setitem(Item **val) {
+        m_items = val;
+    }
+
+    int Getlimit() {
+        return limit;
+    }
+
+    void Setlimit(int val) {
+        limit = val;
+    }
+
+protected:
+
+private:
+    Item **m_items;
+    int limit;
 };
 
 #endif // INVENTORY_H

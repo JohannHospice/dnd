@@ -1,11 +1,9 @@
 #include "Statistic.h"
 
-Statistic::Statistic()
-{
+Statistic::Statistic() {
     //ctor
 }
 
-Statistic::~Statistic()
-{
+Statistic::~Statistic() {
     //dtor
 }

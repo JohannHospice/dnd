@@ -1,11 +1,14 @@
 #include "ActorMonster.h"
+#include "Behavior.h"
 
-ActorMonster::ActorMonster()
-{
+ActorMonster::ActorMonster() {
     //ctor
 }
 
-ActorMonster::~ActorMonster()
-{
+ActorMonster::~ActorMonster() {
     //dtor
+}
+
+void ActorMonster::update(Stage *stage) {
+    m_behavior->act(*this, *stage);
 }

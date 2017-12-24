@@ -1,11 +1,9 @@
 #include "CaseStair.h"
 
-CaseStair::CaseStair()
-{
+CaseStair::CaseStair() {
     //ctor
 }
 
-CaseStair::~CaseStair()
-{
+CaseStair::~CaseStair() {
     //dtor
 }

@@ -1,4 +1,4 @@
-#include <conio.h>
+
 #include <iostream>
 #include <cmath>
 
@@ -8,8 +8,7 @@
 
 StateMenu StateMenu::m_self;
 
-void StateMenu::create()
-{
+void StateMenu::create() {
     m_title = "Dungeon and dragon";
     m_options.push_back("play");
     m_options.push_back("exit");
@@ -17,35 +16,30 @@ void StateMenu::create()
     m_cursorPosition = 0;
 }
 
-void StateMenu::dispose()
-{
+void StateMenu::dispose() {
 
 }
 
-void StateMenu::pause()
-{
+void StateMenu::pause() {
     m_cursorPosition = 0;
 }
 
-void StateMenu::resume()
-{
+void StateMenu::resume() {
 
 }
 
-void StateMenu::render(GameEngine *game)
-{
+void StateMenu::render(GameEngine *game) {
     std::cout << m_title << std::endl;
-    for(int i = 0; i < m_optionSize; i++){
-        if(i == m_cursorPosition)
+    for (int i = 0; i < m_optionSize; i++) {
+        if (i == m_cursorPosition)
             std::cout << ">";
         std::cout << "\t" + m_options.at(i) << std::endl;
     }
 
 }
 
-void StateMenu::handleEvent(GameEngine *game, int event)
-{
-    switch(event) {
+void StateMenu::handleEvent(GameEngine *game, int event) {
+    switch (event) {
         case KEY_UP:
             m_cursorPosition = (m_cursorPosition + 1) % m_optionSize;
             break;
@@ -53,7 +47,7 @@ void StateMenu::handleEvent(GameEngine *game, int event)
             m_cursorPosition = abs(m_cursorPosition - 1) % m_optionSize;
             break;
         case KEY_ENTER:
-            switch(m_cursorPosition) {
+            switch (m_cursorPosition) {
                 case OPTION_QUIT:
                     game->quit();
                     break;
@@ -68,7 +62,6 @@ void StateMenu::handleEvent(GameEngine *game, int event)
     }
 }
 
-void StateMenu::update(GameEngine *game)
-{
+void StateMenu::update(GameEngine *game) {
 
 }

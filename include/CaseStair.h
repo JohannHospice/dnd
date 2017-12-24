@@ -4,19 +4,24 @@
 #include "CaseCarry.h"
 
 
-class CaseStair : public CaseCarry
-{
-    public:
-        CaseStair();
-        virtual ~CaseStair();
+class CaseStair : public CaseCarry {
+public:
+    CaseStair();
 
-        int Getstair() { return m_stair; }
-        void Setstair(int val) { m_stair = val; }
+    virtual ~CaseStair();
 
-    protected:
+    int Getstair() {
+        return m_stair;
+    }
 
-    private:
-        int m_stair;
+    void Setstair(int val) {
+        m_stair = val;
+    }
+
+protected:
+
+private:
+    int m_stair;
 };
 
 #endif // CaseStair_H

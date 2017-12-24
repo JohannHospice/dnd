@@ -4,20 +4,18 @@
 #include "Actor.h"
 #include "Inventory.h"
 
-class ActorHuman : public Actor
-{
-    public:
-        ActorHuman();
-        virtual ~ActorHuman();
+class ActorHuman : public Actor {
+public:
+    ActorHuman();
 
-        Inventory Getinventory() { return m_inventory; }
-        void Setinventory(Inventory val) { m_inventory = val; }
+    ~ActorHuman() override;
 
-        void update(Stage *stage) override;
-    protected:
+    void update(Stage *stage) override;
 
-    private:
-        Inventory m_inventory;
+protected:
+
+private:
+    Inventory m_inventory;
 };
 
 #endif // HUMANACTOR_H

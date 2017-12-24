@@ -12,33 +12,36 @@
 using namespace std;
 
 
-class StateMenu: public GameState
-{
-    public:
-        void create() override;
-        void dispose() override;
+class StateMenu : public GameState {
+public:
+    void create() override;
 
-        void pause() override;
-        void resume() override;
+    void dispose() override;
 
-        void handleEvent(GameEngine *game, int event) override;
-        void update(GameEngine *game) override;
-        void render(GameEngine *game) override;
+    void pause() override;
 
-        static StateMenu* instance() {
-            return &m_self;
-        }
+    void resume() override;
 
-    protected:
-        StateMenu() { }
+    void handleEvent(GameEngine *game, int event) override;
 
-    private:
+    void update(GameEngine *game) override;
 
-        static StateMenu m_self;
+    void render(GameEngine *game) override;
 
-        int m_cursorPosition, m_optionSize;
-        string m_title;
-        vector<string> m_options;
+    static StateMenu *instance() {
+        return &m_self;
+    }
+
+protected:
+    StateMenu() {}
+
+private:
+
+    static StateMenu m_self;
+
+    int m_cursorPosition, m_optionSize;
+    string m_title;
+    vector<string> m_options;
 };
 
 #endif // STATEMENU_H

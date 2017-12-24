@@ -2,22 +2,38 @@
 #define VECTOR_H
 
 
-class Vector
-{
-    public:
-        Vector();
-        virtual ~Vector();
+class Vector {
+public:
+    Vector();
 
-        int Getx() { return x; }
-        void Setx(int val) { x = val; }
-        int Gety() { return y; }
-        void Sety(int val) { y = val; }
+    virtual ~Vector();
 
-    protected:
+    Vector(const int x, const int y) {
+        _x = x;
+        _y = y;
+    }
 
-    private:
-        int x;
-        int y;
+    const int getX() const;
+
+    void setX(int x);
+
+    const int getY() const;
+
+    void setY(int y);
+
+    Vector operator+(Vector const &a) const;
+
+    Vector operator-(Vector const &a) const;
+
+    Vector operator*(Vector const &a) const;
+
+    Vector operator/(Vector const &a) const;
+
+protected:
+
+private:
+    int _x;
+    int _y;
 };
 
 #endif // VECTOR_H

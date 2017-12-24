@@ -2,19 +2,24 @@
 #define ACTORSTATE_H
 
 
-class ActorState
-{
-    public:
-        ActorState();
-        virtual ~ActorState();
+class ActorState {
+public:
+    ActorState();
 
-        int Getdirection() { return direction; }
-        void Setdirection(int val) { direction = val; }
+    virtual ~ActorState();
 
-    protected:
+    int Getdirection() {
+        return direction;
+    }
 
-    private:
-        int direction;
+    void Setdirection(int val) {
+        direction = val;
+    }
+
+protected:
+
+private:
+    int direction;
 };
 
 #endif // ACTORSTATE_H

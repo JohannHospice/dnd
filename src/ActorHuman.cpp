@@ -1,15 +1,13 @@
 #include "ActorHuman.h"
 
-ActorHuman::ActorHuman()
-{
+ActorHuman::ActorHuman() {
     //ctor
 }
 
-ActorHuman::~ActorHuman()
-{
+ActorHuman::~ActorHuman() {
     //dtor
 }
 
-void ActorHuman::update(Stage *stage){
+void ActorHuman::update(Stage *stage) {
 
 }

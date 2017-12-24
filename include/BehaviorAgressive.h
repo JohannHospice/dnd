@@ -4,17 +4,17 @@
 #include <Behavior.h>
 
 
-class BehaviorAgressive : public Behavior
-{
-    public:
-        BehaviorAgressive();
-        virtual ~BehaviorAgressive();
+class BehaviorAgressive : public Behavior {
+public:
+    BehaviorAgressive();
 
-        void act(Stage *stage) override;
+    virtual ~BehaviorAgressive();
 
-    protected:
+    void act(ActorMonster const &monster, Stage const &stage) override;
 
-    private:
+protected:
+
+private:
 };
 
 #endif // BEHAVIORAGRESSIVE_H

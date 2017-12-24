@@ -1,11 +1,9 @@
 #include "PlayMemento.h"
 
-PlayMemento::PlayMemento()
-{
+PlayMemento::PlayMemento() {
     //ctor
 }
 
-PlayMemento::~PlayMemento()
-{
+PlayMemento::~PlayMemento() {
     //dtor
 }

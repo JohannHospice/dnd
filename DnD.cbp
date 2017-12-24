@@ -56,7 +56,7 @@
 		<Unit filename="include/Statistic.h" />
 		<Unit filename="include/Vector.h" />
 		<Unit filename="include/keys.h" />
-		<Unit filename="main.cpp" />
+		<Unit filename="src/main.cpp" />
 		<Unit filename="src/Actor.cpp" />
 		<Unit filename="src/ActorHuman.cpp" />
 		<Unit filename="src/ActorMonster.cpp" />

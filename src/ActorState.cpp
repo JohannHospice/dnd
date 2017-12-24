@@ -1,11 +1,9 @@
 #include "ActorState.h"
 
-ActorState::ActorState()
-{
+ActorState::ActorState() {
     //ctor
 }
 
-ActorState::~ActorState()
-{
+ActorState::~ActorState() {
     //dtor
 }

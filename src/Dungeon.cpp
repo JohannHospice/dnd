@@ -1,11 +1,9 @@
 #include "Dungeon.h"
 
-Dungeon::Dungeon()
-{
+Dungeon::Dungeon() {
     //ctor
 }
 
-Dungeon::~Dungeon()
-{
+Dungeon::~Dungeon() {
     //dtor
 }
