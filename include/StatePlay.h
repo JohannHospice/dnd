@@ -25,22 +25,24 @@ public:
 
     PlayMemento *save() const;
 
-    void restore(const PlayMemento memento);
+    void restore(const PlayMemento &memento);
 
     static StatePlay *instance() {
-        return &m_self;
+        return &_self;
     }
 
 protected:
-    StatePlay() {}
 
 private:
+    StatePlay() = default;
 
-    static StatePlay m_self;
+    static StatePlay _self;
 
-    ActorHuman m_actorHuman;
+    ActorHuman *_actorHuman = nullptr;
 
-    Dungeon *dungeon;
+    std::vector<Stage *> _stages;
+
+    int _activeStage;
 };
 
 #endif // STATEPLAY_H

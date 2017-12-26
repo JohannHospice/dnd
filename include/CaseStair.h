@@ -3,25 +3,30 @@
 
 #include "CaseCarry.h"
 
-
 class CaseStair : public CaseCarry {
 public:
-    CaseStair();
+    CaseStair() {
+        m_type = ':';
+        m_stair = -1;
+    };
 
-    virtual ~CaseStair();
+    ~CaseStair() override;
 
-    int Getstair() {
+    const int getStair() const {
         return m_stair;
     }
 
-    void Setstair(int val) {
+    void setStair(int val) {
         m_stair = val;
     }
+
+    const bool accept(VisitorCase const &visitor) override;
 
 protected:
 
 private:
     int m_stair;
+
 };
 
 #endif // CaseStair_H

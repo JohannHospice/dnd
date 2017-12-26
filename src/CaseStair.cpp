@@ -1,9 +1,8 @@
 #include "CaseStair.h"
+#include "VisitorCase.h"
 
-CaseStair::CaseStair() {
-    //ctor
-}
+CaseStair::~CaseStair() = default;
 
-CaseStair::~CaseStair() {
-    //dtor
+const bool CaseStair::accept(VisitorCase const &visitor) {
+    return visitor.visit(this);
 }

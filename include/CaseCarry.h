@@ -6,26 +6,26 @@
 
 class CaseCarry : public Case {
 public:
-    CaseCarry();
+    ~CaseCarry() override;
 
-    virtual ~CaseCarry();
+    const char getChar() const override;
 
-    Dynamic *Getcontent() {
+    Dynamic *getContent() const {
         return m_content;
     }
 
-    void Setcontent(Dynamic *val) {
+    void setContent(Dynamic *val) {
         m_content = val;
     }
 
-    bool hasContent() {
+    const bool hasContent() const {
         return m_content != nullptr;
     }
 
 protected:
 
 private:
-    Dynamic *m_content;
+    Dynamic *m_content = nullptr;
 };
 
 #endif // CARRYCASE_H

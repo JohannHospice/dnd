@@ -3,42 +3,28 @@
 
 #include "Case.h"
 
+#include "Piece.h"
 #include "Dynamic.h"
+#include "CaseCarry.h"
+#include "CaseWall.h"
+#include "Actor.h"
 
 
-class Stage {
+class Stage : public Piece {
 public:
     Stage();
 
     virtual ~Stage();
 
-    Dynamic *Getactors() {
-        return actors;
-    }
+    const bool move(Dynamic *dynamic, const Vector &destination);
 
-    void Setactors(Dynamic *val) {
-        actors = val;
-    }
+    const bool set(Dynamic *pDynamic, const Vector &destination);
 
-    Case **Getcases() {
-        return cases;
-    }
-
-    void Setcases(Case **val) {
-        cases = val;
-    }
-
-    const Case getCase(const int i, const int j) const;
-
-    bool move(const Dynamic &Dynamic, const int i, const int j);
-
-    bool canMove(const int i, const int j) const;
+    void update();
 
 protected:
-
 private:
-    Dynamic *actors;
-    Case **cases;
+    std::vector<Actor> _actors;
 };
 
 #endif // STAGE_H

@@ -5,18 +5,32 @@
 #include "Stage.h"
 #include "Dynamic.h"
 #include "Statistic.h"
+#include "StateActorDirection.h"
 
 class Actor : public Dynamic {
 public:
-    Actor() {};
+    const char getChar() const override;
 
     virtual void update(Stage *stage) = 0;
 
-protected:
+    const Statistic *getStatistic() const;
 
-private:
+    const bool heal(int life);
+
+    const bool hurt(int damage);
+
+    const bool hurt(Actor *a);
+
+    const bool attack(Actor *pActor);
+
+    void setDirection(StateActorDirection::Direction direction);
+
+    const StateActorDirection::Direction getDirection() const;
+
+protected:
     std::string name;
     Statistic *statistic;
+    StateActorDirection *actorState;
 };
 
 #endif // ACTOR_H

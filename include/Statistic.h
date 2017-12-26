@@ -8,45 +8,31 @@ public:
 
     virtual ~Statistic();
 
-    const int Getlife() {
-        return life;
-    }
+    const int getLife() const;
 
-    void Setlife(const int val) {
-        life = val;
-    }
+    bool setLife(int val);
 
-    const int Getattack() {
-        return attack;
-    }
+    const int getAttack() const;
 
-    void Setattack(const int val) {
-        attack = val;
-    }
+    bool setAttack(int val);
 
-    const int Getdefense() {
-        return defense;
-    }
+    const int getDefense() const;
 
-    void Setdefense(const int val) {
-        defense = val;
-    }
+    bool setDefense(int val);
 
-    const int GetfieldView() {
-        return fieldView;
-    }
+    const int getFieldView() const;
 
-    void SetfieldView(const int val) {
-        fieldView = val;
-    }
+    bool setFieldView(int val);
+
+    const bool addLife(int life);
 
 protected:
 
 private:
-    int life;
-    int attack;
-    int defense;
-    int fieldView;
+    int _life;
+    int _attack;
+    int _defense;
+    int _fieldView;
 };
 
 #endif // STATISTIC_H

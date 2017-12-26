@@ -1,35 +1,36 @@
 #ifndef INVENTORY_H
 #define INVENTORY_H
 
+#include <vector>
 #include "Item.h"
 
 class Inventory {
 public:
-    Inventory();
+    explicit Inventory(int limit);
 
     virtual ~Inventory();
 
-    Item **Getitems() {
-        return m_items;
+    const int getLimit() const {
+        return _limit;
     }
 
-    void Setitem(Item **val) {
-        m_items = val;
+    void setLimit(int val) {
+        _limit = val;
     }
 
-    int Getlimit() {
-        return limit;
-    }
+    const std::vector<Item *> getItems() const;
 
-    void Setlimit(int val) {
-        limit = val;
-    }
+    const bool addItem(Item *pItem);
+
+    Item *getItem(int i) const;
+
+    unsigned long size() const;
 
 protected:
 
 private:
-    Item **m_items;
-    int limit;
+    std::vector<Item *> m_items;
+    int _limit;
 };
 
 #endif // INVENTORY_H

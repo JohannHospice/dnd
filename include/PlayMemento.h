@@ -7,23 +7,23 @@
 
 class PlayMemento {
 public:
-    PlayMemento();
+    PlayMemento(Dungeon *dungeon, ActorHuman *);
 
     virtual ~PlayMemento();
 
-    Dungeon *Getdungeon() {
+    Dungeon *getDungeon() const {
         return m_dungeon;
     }
 
-    void Setdungeon(Dungeon *val) {
+    void setDungeon(Dungeon *val) {
         m_dungeon = val;
     }
 
-    ActorHuman *Gethuman() {
+    ActorHuman *getHuman() const {
         return human;
     }
 
-    void Sethuman(ActorHuman *val) {
+    void setHuman(ActorHuman *val) {
         human = val;
     }
 

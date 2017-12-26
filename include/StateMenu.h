@@ -4,10 +4,10 @@
 #define OPTION_PLAY 0
 #define OPTION_QUIT 1
 
-#include "GameState.h"
-
 #include <string>
 #include <vector>
+
+#include "GameState.h"
 
 using namespace std;
 

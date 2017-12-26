@@ -1,5 +1,5 @@
 #include <iostream>
-#include <conio.h>
+#include <ncurses.h>
 #include "GameEngine.h"
 #include "GameState.h"
 

@@ -6,17 +6,17 @@
 
 class Behavior;
 
-class ActorMonster: public Actor {
+class ActorMonster : public Actor {
 public:
     ActorMonster();
 
     ~ActorMonster() override;
 
-    Item *Getitem() {
+    Item *getItem() {
         return m_item;
     }
 
-    void Setitem(Item *val) {
+    void setItem(Item *val) {
         m_item = val;
     }
 

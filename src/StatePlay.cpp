@@ -1,7 +1,7 @@
 #include "StatePlay.h"
 #include "keys.h"
 
-StatePlay StatePlay::m_self;
+StatePlay StatePlay::_self;
 
 
 void StatePlay::create() {
@@ -9,7 +9,6 @@ void StatePlay::create() {
 }
 
 void StatePlay::dispose() {
-
 }
 
 void StatePlay::pause() {
@@ -22,6 +21,7 @@ void StatePlay::resume() {
 
 void StatePlay::render(GameEngine *game) {
 
+    _stages.at(_activeStage)->update();
 }
 
 void StatePlay::handleEvent(GameEngine *game, int event) {
@@ -42,4 +42,13 @@ void StatePlay::handleEvent(GameEngine *game, int event) {
 
 void StatePlay::update(GameEngine *game) {
 
+}
+
+PlayMemento *StatePlay::save() const {
+    return new PlayMemento(_dungeon, _actorHuman);
+}
+
+void StatePlay::restore(const PlayMemento &memento) {
+    _dungeon = memento.getDungeon();
+    _actorHuman = memento.getHuman();
 }

@@ -3,6 +3,9 @@
 
 #include "Actor.h"
 #include "Inventory.h"
+#include <vector>
+#include "Action.h"
+#include "EventDynamic.h"
 
 class ActorHuman : public Actor {
 public:
@@ -12,10 +15,15 @@ public:
 
     void update(Stage *stage) override;
 
+
+    const bool accept(VisitorDynamic *pDynamic) override;
+
+    const bool addItem(Item *pItem);
+
 protected:
 
 private:
-    Inventory m_inventory;
+    Inventory *m_inventory;
 };
 
 #endif // HUMANACTOR_H

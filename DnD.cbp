@@ -37,7 +37,7 @@
 		<Unit filename="include/Actor.h" />
 		<Unit filename="include/ActorHuman.h" />
 		<Unit filename="include/ActorMonster.h" />
-		<Unit filename="include/ActorState.h" />
+		<Unit filename="include/StateActorDirection.h" />
 		<Unit filename="include/Behavior.h" />
 		<Unit filename="include/Case.h" />
 		<Unit filename="include/CaseCarry.h" />
@@ -60,7 +60,7 @@
 		<Unit filename="src/Actor.cpp" />
 		<Unit filename="src/ActorHuman.cpp" />
 		<Unit filename="src/ActorMonster.cpp" />
-		<Unit filename="src/ActorState.cpp" />
+		<Unit filename="src/StateActorDirection.cpp" />
 		<Unit filename="src/Behavior.cpp" />
 		<Unit filename="src/Case.cpp" />
 		<Unit filename="src/CaseCarry.cpp" />

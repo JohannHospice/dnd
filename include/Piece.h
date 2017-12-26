@@ -1,21 +1,25 @@
-//
-// Created by djihe on 24/12/2017.
-//
+#ifndef DND_PIECE_H
+#define DND_PIECE_H
 
-#ifndef DND_ROOM_H
-#define DND_ROOM_H
-
+#include <string>
 #include "Case.h"
 
-#define SIZE_LIMIT 100
+#define SIZE_LIMIT 1000
 
 class Piece {
+public:
+    std::string toString() const;
 
+    const bool inBound(int x, int y) const;
 
-private:
+    Case *getCase(const Vector &pVector) const;
+
+protected:
     int _sizeX, _sizeY;
-    Case _cases[SIZE_LIMIT][SIZE_LIMIT];
+    Case *_cases[SIZE_LIMIT][SIZE_LIMIT];
+
+    const bool inBound(const Vector &vector);
 };
 
 
-#endif //DND_ROOM_H
+#endif //DND_PIECE_H
