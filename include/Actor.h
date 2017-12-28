@@ -30,13 +30,13 @@ public:
 
     const ActorStateDirection::Direction getDirection() const;
 
-    const bool changeState(const ActorStateDirection *);
+    const bool changeState(ActorStateDirection::Direction);
 
 protected:
     Actor(const std::string &name, Statistic *statistic);
     std::string _name;
     Statistic *_statistic;
-    ActorStateDirection *_state;
+    ActorStateDirection *_state = new ActorStateDirection();
 };
 
 #endif // ACTOR_H

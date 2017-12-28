@@ -36,9 +36,9 @@ const Statistic *Actor::getStatistic() const {
     return _statistic;
 }
 
-const bool Actor::changeState(const ActorStateDirection *e) {
-    if (_state == e)
+const bool Actor::changeState(ActorStateDirection::Direction e) {
+    if (_state->getState() == e)
         return false;
-    _state->setState(e->getState());
+    _state->setState(e);
     return true;
 }

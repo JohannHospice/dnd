@@ -42,10 +42,9 @@ PlayMemento *PlayMemento::newGame() {
     auto *human = new ActorHuman("human", FactoryStatistic::makeWarrior());
     std::vector<Stage *> stages;
 
-    auto *mapBuilder = new MapBuilder();
-    mapBuilder->setRoom(10, 10, 0, 0);
-    Map *map = mapBuilder->build();
-    map->setCase(3, 3, new CaseStair(1));
+    Map *map = (new MapBuilder())->setRoom(10, 10, 0, 0)->build();
+    map->setCase(3, 6, new CaseStair(1));
+
     Vector position = *new Vector(6, 2);
     if (map->getCase(position)->accept(*new VisitorCaseMove(human)))
         human->setVector(position);

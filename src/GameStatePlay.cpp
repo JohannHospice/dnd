@@ -34,15 +34,30 @@ void GameStatePlay::handleEvent(GameEngine *game, TerminalInput *input) {
     else {
         // todo replace by _events
         Vector *position = _actorHuman->getVector()->copy();
-        if (i == input->getUp())
-            position->addY(1);
-        else if (i == input->getDown())
-            position->addY(-1);
-        else if (i == input->getLeft())
-            position->addX(-1);
-        else if (i == input->getRight())
-            position->addX(1);
-        getActiveStage()->move(_actorHuman, *position);
+        bool ok = false;
+        if (i == input->getUp()) {
+            if (!_actorHuman->changeState(ActorStateDirection::UP)) {
+                position->addY(1);
+                ok = true;
+            }
+        } else if (i == input->getDown()) {
+            if (!_actorHuman->changeState(ActorStateDirection::DOWN)) {
+                position->addY(-1);
+                ok = true;
+            }
+        } else if (i == input->getRight()) {
+            if (!_actorHuman->changeState(ActorStateDirection::RIGHT)) {
+                position->addX(1);
+                ok = true;
+            }
+        } else if (i == input->getLeft()) {
+            if (!_actorHuman->changeState(ActorStateDirection::LEFT)) {
+                position->addX(-1);
+                ok = true;
+            }
+        }
+        if (ok)
+            getActiveStage()->move(_actorHuman, *position);
     }
 }
 
