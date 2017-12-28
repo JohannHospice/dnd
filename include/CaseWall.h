@@ -9,7 +9,7 @@
 
 class CaseWall : public Case {
 public:
-    static const enum Type {
+    enum Type {
         VERTICAL = '|',
         HORIZOTAL = '-',
         EMPTY = ' ',

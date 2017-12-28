@@ -1,16 +1,12 @@
 #ifndef STAGE_H
 #define STAGE_H
 
-#include "Case.h"
-
-#include "Piece.h"
+#include "MapPiece.h"
 #include "Dynamic.h"
-#include "CaseCarry.h"
-#include "CaseWall.h"
 #include "Actor.h"
 
 
-class Stage : public Piece {
+class Stage {
 public:
     Stage();
 
@@ -22,9 +18,20 @@ public:
 
     void update();
 
+    Map *getMap() const;
+
+    void setMap(Map *map);
+
+    const char *toString() const;
+
 protected:
 private:
-    std::vector<Actor> _actors;
+    std::vector<Actor *> _actors;
+    Map *_map;
+
+    const bool set(Dynamic *pDynamic, Vector *destination);
+
+    const bool move(Dynamic *dynamic, Vector *destination);
 };
 
 #endif // STAGE_H

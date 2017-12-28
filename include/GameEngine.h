@@ -2,14 +2,13 @@
 #define GAMEENGINE_H
 
 #include <vector>
-
-using namespace std;
+#include "Terminal.h"
 
 class GameState;
 
 class GameEngine {
 public:
-    GameEngine();
+    explicit GameEngine(Terminal *io);
 
     virtual ~GameEngine();
 
@@ -29,20 +28,18 @@ public:
 
     void render();
 
-    bool running() {
-        return m_running;
+    const bool running() const {
+        return _running;
     }
 
     void quit() {
-        m_running = false;
+        _running = false;
     }
 
-protected:
-
 private:
-    vector<GameState *> states;
-
-    bool m_running;
+    std::vector<GameState *> _gameStates;
+    bool _running;
+    Terminal *_io;
 };
 
 #endif // GAMEENGINE_H

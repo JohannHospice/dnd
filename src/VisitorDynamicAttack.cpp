@@ -1,7 +1,3 @@
-//
-// Created by karibukai on 26/12/17.
-//
-
 #include "VisitorDynamicAttack.h"
 
 VisitorDynamicAttack::VisitorDynamicAttack(Actor *pHuman) {

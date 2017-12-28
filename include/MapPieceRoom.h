@@ -7,13 +7,15 @@
 
 #include <vector>
 #include <stdexcept>
-#include "Piece.h"
+#include "MapPiece.h"
 #include "CaseCarry.h"
 #include "CaseWall.h"
 
-class Room : public Piece {
+class MapPieceRoom : public MapPiece {
 public:
-    void setSize(int sizeX, int sizeY, std::vector<Vector> open);
+    MapPieceRoom(int sizeX, int sizeY, int originX, int originY);
+
+    void setSize(int sizeX, int sizeY);
 
     void setOpen(Vector const &position);
 

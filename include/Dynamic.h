@@ -12,19 +12,20 @@ class Dynamic : public Characterisable {
 public:
     virtual ~Dynamic();
 
-    const Vector *getVector() const {
-        return &m_vector;
-    }
+    Vector * getVector() const ;
+
+    void setVector(const Vector &vector);
 
     void addEvent(EventDynamic *event);
 
+
     virtual const bool accept(VisitorDynamic *pDynamic) = 0;
-
 protected:
-    std::vector<EventDynamic *> events;
 
+    std::vector<EventDynamic *> _events;
 private:
-    Vector m_vector;
+
+    Vector *_vector = new Vector();
 };
 
 #endif // DYNAMIC_H

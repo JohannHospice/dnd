@@ -15,15 +15,11 @@ public:
 
     virtual void resume() = 0;
 
-    virtual void handleEvent(GameEngine *game, int event) = 0;
+    virtual void handleEvent(GameEngine *game, TerminalInput *input) = 0;
 
     virtual void update(GameEngine *game) = 0;
 
-    virtual void render(GameEngine *game) = 0;
-
-    void changeState(GameEngine *game, GameState *state) {
-        game->changeState(state);
-    }
+    virtual void render(GameEngine *game, TerminalOutput *pIO) = 0;
 
 protected:
     GameState() {}

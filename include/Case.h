@@ -2,7 +2,6 @@
 #define CASE_H
 
 #include "Characterisable.h"
-#include "Stage.h"
 
 class VisitorCase;
 

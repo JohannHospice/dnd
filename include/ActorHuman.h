@@ -1,20 +1,18 @@
 #ifndef HUMANACTOR_H
 #define HUMANACTOR_H
 
+#include <vector>
 #include "Actor.h"
 #include "Inventory.h"
-#include <vector>
 #include "Action.h"
 #include "EventDynamic.h"
 
+#define DEFAULT_INVENTORY_SIZE 10
 class ActorHuman : public Actor {
 public:
-    ActorHuman();
-
-    ~ActorHuman() override;
+    ActorHuman(const std::string &name, Statistic *statistic);
 
     void update(Stage *stage) override;
-
 
     const bool accept(VisitorDynamic *pDynamic) override;
 

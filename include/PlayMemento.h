@@ -1,37 +1,35 @@
 #ifndef PLAYMEMENTO_H
-#define PLAYMEMENTO
+#define PLAYMEMENTO_H
 
 
+#include "vector"
 #include "ActorHuman.h"
-#include "Dungeon.h"
+#include "Stage.h"
 
 class PlayMemento {
 public:
-    PlayMemento(Dungeon *dungeon, ActorHuman *);
+    PlayMemento(ActorHuman *dungeon, std::vector<Stage *>, int i);
 
     virtual ~PlayMemento();
 
-    Dungeon *getDungeon() const {
-        return m_dungeon;
-    }
+    ActorHuman *getActorHuman() const;
 
-    void setDungeon(Dungeon *val) {
-        m_dungeon = val;
-    }
+    void setActorHuman(ActorHuman *_actorHuman);
 
-    ActorHuman *getHuman() const {
-        return human;
-    }
+    const std::vector<Stage *> &getStages() const;
 
-    void setHuman(ActorHuman *val) {
-        human = val;
-    }
+    void setStages(const std::vector<Stage *> &_stages);
 
-protected:
+    int getActiveStage() const;
+
+    void setActiveStage(int _activeStage);
+
+    static PlayMemento *newGame();
 
 private:
-    Dungeon *m_dungeon;
-    ActorHuman *human;
+    ActorHuman *_actorHuman;
+    std::vector<Stage *> _stages;
+    int _activeStage;
 };
 
-#endif // PLAYMEMENTO
+#endif // PLAYMEMENTO_H

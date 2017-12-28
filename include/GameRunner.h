@@ -5,7 +5,7 @@
 
 class GameRunner {
 public:
-    GameRunner(GameEngine *engine);
+    explicit GameRunner(GameEngine *engine);
 
     void start(GameState *state);
 

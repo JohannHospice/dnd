@@ -1,18 +1,19 @@
-
-
-#include <StateActorDirection.h>
 #include <Actor.h>
 
-void Actor::setDirection(const StateActorDirection::Direction direction) {
-    actorState->setState(direction);
+Actor::Actor(const std::string &name, Statistic *statistic) : _name(name), _statistic(statistic) {
+    _state = new ActorStateDirection();
 }
 
-const StateActorDirection::Direction Actor::getDirection() const {
-    return actorState->getState();
+void Actor::setDirection(const ActorStateDirection::Direction direction) {
+    _state->setState(direction);
+}
+
+const ActorStateDirection::Direction Actor::getDirection() const {
+    return _state->getState();
 }
 
 const char Actor::getChar() const {
-    return actorState->getState();
+    return _state->getState();
 }
 
 const bool Actor::attack(Actor *pActor) {
@@ -24,13 +25,20 @@ const bool Actor::hurt(Actor *a) {
 }
 
 const bool Actor::hurt(int damage) {
-    return statistic->setLife(statistic->getLife() - damage);
+    return _statistic->setLife(_statistic->getLife() - damage);
 }
 
 const bool Actor::heal(int life) {
-    return statistic->addLife(life);
+    return _statistic->addLife(life);
 }
 
 const Statistic *Actor::getStatistic() const {
-    return statistic;
+    return _statistic;
+}
+
+const bool Actor::changeState(const ActorStateDirection *e) {
+    if (_state == e)
+        return false;
+    _state->setState(e->getState());
+    return true;
 }

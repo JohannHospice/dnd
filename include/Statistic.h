@@ -5,6 +5,7 @@
 class Statistic {
 public:
     Statistic();
+    Statistic(int life, int defense, int attack, int fieldView);
 
     virtual ~Statistic();
 

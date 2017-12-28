@@ -2,16 +2,19 @@
 #define ACTOR_H
 
 #include <string>
-#include "Stage.h"
 #include "Dynamic.h"
 #include "Statistic.h"
-#include "StateActorDirection.h"
+#include "ActorStateDirection.h"
+
+class Stage;
 
 class Actor : public Dynamic {
 public:
-    const char getChar() const override;
+
 
     virtual void update(Stage *stage) = 0;
+
+    const char getChar() const override;
 
     const Statistic *getStatistic() const;
 
@@ -23,14 +26,17 @@ public:
 
     const bool attack(Actor *pActor);
 
-    void setDirection(StateActorDirection::Direction direction);
+    void setDirection(ActorStateDirection::Direction direction);
 
-    const StateActorDirection::Direction getDirection() const;
+    const ActorStateDirection::Direction getDirection() const;
+
+    const bool changeState(const ActorStateDirection *);
 
 protected:
-    std::string name;
-    Statistic *statistic;
-    StateActorDirection *actorState;
+    Actor(const std::string &name, Statistic *statistic);
+    std::string _name;
+    Statistic *_statistic;
+    ActorStateDirection *_state;
 };
 
 #endif // ACTOR_H

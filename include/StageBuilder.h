@@ -7,7 +7,7 @@
 
 #include <vector>
 #include "Stage.h"
-#include "Piece.h"
+#include "MapPiece.h"
 
 class StageBuilder {
 
@@ -16,7 +16,7 @@ class StageBuilder {
     Stage build() const;
 
 private:
-    std::vector<Piece> raw;
+    std::vector<MapPiece> raw;
 };
 
 

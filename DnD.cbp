@@ -7,7 +7,7 @@
 		<Option compiler="gcc" />
 		<Build>
 			<Target title="Debug">
-				<Option output="bin/Debug/DnD" prefix_auto="1" extension_auto="1" />
+				<Option _output="bin/Debug/DnD" prefix_auto="1" extension_auto="1" />
 				<Option object_output="obj/Debug/" />
 				<Option type="1" />
 				<Option compiler="gcc" />
@@ -17,7 +17,7 @@
 				</Compiler>
 			</Target>
 			<Target title="Release">
-				<Option output="bin/Release/DnD" prefix_auto="1" extension_auto="1" />
+				<Option _output="bin/Release/DnD" prefix_auto="1" extension_auto="1" />
 				<Option object_output="obj/Release/" />
 				<Option type="1" />
 				<Option compiler="gcc" />
@@ -37,7 +37,7 @@
 		<Unit filename="include/Actor.h" />
 		<Unit filename="include/ActorHuman.h" />
 		<Unit filename="include/ActorMonster.h" />
-		<Unit filename="include/StateActorDirection.h" />
+		<Unit filename="include/ActorStateDirection.h" />
 		<Unit filename="include/Behavior.h" />
 		<Unit filename="include/Case.h" />
 		<Unit filename="include/CaseCarry.h" />
@@ -51,8 +51,8 @@
 		<Unit filename="include/Item.h" />
 		<Unit filename="include/PlayMemento.h" />
 		<Unit filename="include/Stage.h" />
-		<Unit filename="include/StateMenu.h" />
-		<Unit filename="include/StatePlay.h" />
+		<Unit filename="include/GameStateMenu.h" />
+		<Unit filename="include/GameStatePlay.h" />
 		<Unit filename="include/Statistic.h" />
 		<Unit filename="include/Vector.h" />
 		<Unit filename="include/keys.h" />
@@ -60,7 +60,7 @@
 		<Unit filename="src/Actor.cpp" />
 		<Unit filename="src/ActorHuman.cpp" />
 		<Unit filename="src/ActorMonster.cpp" />
-		<Unit filename="src/StateActorDirection.cpp" />
+		<Unit filename="src/ActorStateDirection.cpp" />
 		<Unit filename="src/Behavior.cpp" />
 		<Unit filename="src/Case.cpp" />
 		<Unit filename="src/CaseCarry.cpp" />
@@ -74,8 +74,8 @@
 		<Unit filename="src/Item.cpp" />
 		<Unit filename="src/PlayMemento.cpp" />
 		<Unit filename="src/Stage.cpp" />
-		<Unit filename="src/StateMenu.cpp" />
-		<Unit filename="src/StatePlay.cpp" />
+		<Unit filename="src/GameStateMenu.cpp" />
+		<Unit filename="src/GameStatePlay.cpp" />
 		<Unit filename="src/Statistic.cpp" />
 		<Unit filename="src/Vector.cpp" />
 		<Extensions>

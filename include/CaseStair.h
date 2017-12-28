@@ -5,9 +5,9 @@
 
 class CaseStair : public CaseCarry {
 public:
-    CaseStair() {
+    CaseStair(int i) {
         m_type = ':';
-        m_stair = -1;
+        m_stair = i;
     };
 
     ~CaseStair() override;

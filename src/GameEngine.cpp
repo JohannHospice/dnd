@@ -1,82 +1,75 @@
-#include <iostream>
-#include <ncurses.h>
 #include "GameEngine.h"
 #include "GameState.h"
 
-const int getEvent() {
-    int input;
-    do {
-        input = getch();
-    } while (input == 224 || input == 0);
-    return input;
-}
-
-GameEngine::GameEngine() {}
+GameEngine::GameEngine(Terminal *io) { _io = io; }
 
 GameEngine::~GameEngine() {}
 
 
 void GameEngine::create() {
-    m_running = true;
+    _io->init();
+    _running = true;
 }
 
 void GameEngine::dispose() {
-    // cleanup the all states
-    while (!states.empty()) {
-        states.back()->dispose();
-        states.pop_back();
+    // cleanup the all _gameStates
+    while (!_gameStates.empty()) {
+        _gameStates.back()->dispose();
+        _gameStates.pop_back();
     }
+    _io->close();
 }
 
 void GameEngine::changeState(GameState *state) {
-    // cleanup the current state
-    if (!states.empty()) {
-        states.back()->dispose();
-        states.pop_back();
+    // cleanup the current _direction
+    if (!_gameStates.empty()) {
+        _gameStates.back()->dispose();
+        _gameStates.pop_back();
     }
 
-    // store and init the new state
-    states.push_back(state);
-    states.back()->create();
+    // store and init the new _direction
+    _gameStates.push_back(state);
+    _gameStates.back()->create();
 }
 
 void GameEngine::pushState(GameState *state) {
-    // pause current state
-    if (!states.empty()) {
-        states.back()->pause();
+    // pause current _direction
+    if (!_gameStates.empty()) {
+        _gameStates.back()->pause();
     }
 
-    // store and init the new state
-    states.push_back(state);
-    states.back()->create();
+    // store and init the new _direction
+    _gameStates.push_back(state);
+    _gameStates.back()->create();
 }
 
 void GameEngine::popState() {
-    // cleanup the current state
-    if (!states.empty()) {
-        states.back()->dispose();
-        states.pop_back();
+    // cleanup the current _direction
+    if (!_gameStates.empty()) {
+        _gameStates.back()->dispose();
+        _gameStates.pop_back();
     }
 
-    // resume previous state
-    if (!states.empty()) {
-        states.back()->resume();
+    // resume previous _direction
+    if (!_gameStates.empty()) {
+        _gameStates.back()->resume();
     }
 }
 
 void GameEngine::handleEvent() {
-    // let the state handle events
-    states.back()->handleEvent(this, getEvent());
+    // let the _direction handle _events
+    _gameStates.back()->handleEvent(this, _io->getInput());
 }
 
 void GameEngine::update() {
-    // let the state update the game
-    states.back()->update(this);
+    // let the _direction update the game
+    _gameStates.back()->update(this);
 }
 
 void GameEngine::render() {
+    TerminalOutput *o = _io->getOutput();
     // clear screen
-    system("cls");
-    // let the state draw the screen
-    states.back()->render(this);
+    o->clear();
+    // let the _direction draw the screen
+    _gameStates.back()->render(this, o);
 }

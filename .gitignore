@@ -1,5 +1,5 @@
 
-# Created by https://www.gitignore.io/api/c++,clion
+# Created by https://www.gitignore._io/api/c++,clion
 
 ### C++ ###
 # Prerequisites
@@ -90,7 +90,7 @@ crashlytics-build.properties
 fabric.properties
 
 ### CLion Patch ###
-# Comment Reason: https://github.com/joeblau/gitignore.io/issues/186#issuecomment-215987721
+# Comment Reason: https://github.com/joeblau/gitignore._io/issues/186#issuecomment-215987721
 
 # *.iml
 # modules.xml
@@ -100,10 +100,10 @@ fabric.properties
 # Sonarlint plugin
 .idea/sonarlint
 
-# End of https://www.gitignore.io/api/c++,clion
+# End of https://www.gitignore._io/api/c++,clion
 
 
-# Created by https://www.gitignore.io/api/codeblocks
+# Created by https://www.gitignore._io/api/codeblocks
 
 ### CodeBlocks ###
 # specific to CodeBlocks IDE
@@ -114,4 +114,4 @@ fabric.properties
 bin/
 obj/
 
-# End of https://www.gitignore.io/api/codeblocks
+# End of https://www.gitignore._io/api/codeblocks

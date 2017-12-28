@@ -4,6 +4,8 @@ Statistic::Statistic() {
     //ctor
 }
 
+Statistic::Statistic(int life, int defense, int attack, int fieldView): _life(life), _defense(defense),_attack(attack), _fieldView(fieldView){}
+
 Statistic::~Statistic() {
     //dtor
 }

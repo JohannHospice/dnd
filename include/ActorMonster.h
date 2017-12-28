@@ -8,16 +8,17 @@ class Behavior;
 
 class ActorMonster : public Actor {
 public:
-    ActorMonster();
+    ActorMonster(const std::string &name, Statistic *statistic, Item *item);
+    ActorMonster(const std::string &name, Statistic *statistic);
 
     ~ActorMonster() override;
 
     Item *getItem() {
-        return m_item;
+        return _item;
     }
 
     void setItem(Item *val) {
-        m_item = val;
+        _item = val;
     }
 
     void update(Stage *stage) override;
@@ -25,8 +26,8 @@ public:
 protected:
 
 private:
-    Item *m_item;
-    Behavior *m_behavior;
+    Item *_item;
+    Behavior *_behavior;
 };
 
 #endif // MONSTERACTOR_H

@@ -12,7 +12,7 @@
 using namespace std;
 
 
-class StateMenu : public GameState {
+class GameStateMenu : public GameState {
 public:
     void create() override;
 
@@ -22,22 +22,24 @@ public:
 
     void resume() override;
 
-    void handleEvent(GameEngine *game, int event) override;
+    void handleEvent(GameEngine *game, TerminalInput *input) override;
 
     void update(GameEngine *game) override;
 
-    void render(GameEngine *game) override;
+    void render(GameEngine *game, TerminalOutput *pIO) override;
 
-    static StateMenu *instance() {
+    void chooseOption(GameEngine *game);
+
+    static GameStateMenu *instance() {
         return &m_self;
     }
 
 protected:
-    StateMenu() {}
+
+    GameStateMenu() {}
 
 private:
-
-    static StateMenu m_self;
+    static GameStateMenu m_self;
 
     int m_cursorPosition, m_optionSize;
     string m_title;
