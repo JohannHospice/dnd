@@ -19,16 +19,16 @@ public:
 
     void setMap(Map *map);
 
-    void removeActor(Actor *actor);
+    void remove(Dynamic *aDynamic);
 
     const char *toString() const;
 
-    bool addActor(Actor *actor, const Vector &vector);
+    std::vector<Dynamic *> getActors() const { return _actors; }
 
-    std::vector<Actor *> getActors() const { return _actors; }
-
+    bool add(Dynamic *aDynamic, const Vector &vector);
 private:
-    std::vector<Actor *> _actors;
+
+    std::vector<Dynamic *> _actors;
 
     Map *_map;
 };

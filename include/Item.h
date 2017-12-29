@@ -15,6 +15,13 @@ public:
     const char getChar() const override;
 
     const bool accept(const VisitorDynamic &visitor) override;
+
+    const bool isActive() const;
+
+    void setActive(bool active);
+
+private:
+    bool _active;
 };
 
 #endif // ITEM_H

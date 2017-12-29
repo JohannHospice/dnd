@@ -11,9 +11,9 @@
 
 class Stage;
 
-class VisitorDynamicStage : public VisitorDynamic {
+class VisitorDynamicUpdate : public VisitorDynamic {
 public:
-    explicit VisitorDynamicStage(Stage *pStage) : _stage(pStage) {};
+    explicit VisitorDynamicUpdate(Stage *pStage) : _stage(pStage) {};
 
     const bool visit(Item *item) const override;
 

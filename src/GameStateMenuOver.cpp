@@ -10,8 +10,8 @@ GameStateMenuOver GameStateMenuOver::_self;
 void GameStateMenuOver::create() {
     _optionSize = 2;
     _title = "Game over";
-    _options.push_back("restart last save");
-    _options.push_back("return to menu");
+    _options.emplace_back("restart last save");
+    _options.emplace_back("return to menu");
 }
 
 void GameStateMenuOver::dispose() {}

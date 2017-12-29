@@ -28,8 +28,9 @@ const bool Actor::hurt(Actor *a) {
 
 const bool Actor::hurt(int damage) {
     _life -= damage;
-    if (_life < 0)
+    if (_life <= 0){
         _life = 0;
+    }
     return true;
 }
 

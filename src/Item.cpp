@@ -11,3 +11,10 @@ const bool Item::accept(const VisitorDynamic &visitor) {
 const char Item::getChar() const {
     return 'I';
 }
+
+const bool Item::isActive() const {
+    return _active;
+}
+void Item::setActive(bool active) {
+    _active = active;
+}

@@ -40,7 +40,7 @@ void PlayMemento::setActiveStage(int _activeStage) {
 }
 
 PlayMemento *PlayMemento::newGame() {
-    auto *human = new ActorHuman("human", FactoryStatistic::makeSorcerer());
+    auto *human = new ActorHuman("human", FactoryStatistic::makeKnight());
     auto *builder = new MapBuilder();
 
     Map *map = builder
@@ -51,17 +51,21 @@ PlayMemento *PlayMemento::newGame() {
             ->build();
 
     auto *stage = new Stage(map);
-    stage->addActor(human, Vector(1, 1));
-    stage->addActor(new ActorMonster("deprived", FactoryStatistic::makeWarrior(), FactoryItem::makePotion(),
-                                     new BehaviorRandom()), Vector(4, 4));
-    stage->addActor(new ActorMonster("deprived", FactoryStatistic::makeKnight(), FactoryItem::makePotion(),
-                                     new BehaviorRandom()), Vector(6, 5));
-    stage->addActor(new ActorMonster("deprived", FactoryStatistic::makeSorcerer(), FactoryItem::makePotion(),
-                                     new BehaviorRandom()), Vector(2, 8));
-    stage->addActor(new ActorMonster("deprived", FactoryStatistic::makeThief(), FactoryItem::makePotion(),
-                                     new BehaviorRandom()), Vector(8, 3));
-    stage->addActor(new ActorMonster("deprived", FactoryStatistic::makeDeprived(), FactoryItem::makePotion(),
-                                     new BehaviorRandom()), Vector(5, 7));
+    stage->add(human, Vector(1, 1));
+    stage->add(new ActorMonster("deprived", FactoryStatistic::makeWarrior(), FactoryItem::makePotion(),
+                                new BehaviorRandom()), Vector(4, 4));
+    stage->add(new ActorMonster("deprived", FactoryStatistic::makeKnight(), FactoryItem::makePotion(),
+                                new BehaviorRandom()), Vector(6, 5));
+    stage->add(new ActorMonster("deprived", FactoryStatistic::makeSorcerer(), FactoryItem::makePotion(),
+                                new BehaviorRandom()), Vector(2, 8));
+    stage->add(new ActorMonster("deprived", FactoryStatistic::makeThief(), FactoryItem::makePotion(),
+                                new BehaviorRandom()), Vector(8, 3));
+    stage->add(new ActorMonster("deprived", FactoryStatistic::makeDeprived(), FactoryItem::makePotion(),
+                                new BehaviorRandom()), Vector(5, 7));
+    stage->add(new ActorMonster("deprived", FactoryStatistic::makeDeprived(), FactoryItem::makePotion(),
+                                new BehaviorRandom()), Vector(20, 9));
+    stage->add(new ActorMonster("deprived", FactoryStatistic::makeDeprived(), FactoryItem::makePotion(),
+                                new BehaviorRandom()), Vector(2, 4));
 
     std::vector<Stage *> stages;
     stages.push_back(stage);

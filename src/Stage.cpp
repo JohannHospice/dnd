@@ -1,26 +1,14 @@
 #include <ActorHuman.h>
 #include "Stage.h"
-#include "VisitorDynamicStage.h"
+#include "VisitorDynamicUpdate.h"
 
 Stage::Stage(Map *pMap) : _map(pMap) {}
 
 Stage::~Stage() {}
 
 void Stage::update() {
-    for (auto actor: _actors) {
-        actor->update(_map);
-    }
-    for (auto actor: _actors) {
-        actor->accept(VisitorDynamicStage(this));
-    }
-}
-
-bool Stage::addActor(Actor *actor, const Vector &vector) {
-    if (_map->set(actor, vector)) {
-        _actors.push_back(actor);
-        return true;
-    }
-    return false;
+    for (auto actor: _actors)
+        actor->accept(VisitorDynamicUpdate(this));
 }
 
 void Stage::setMap(Map *map) {
@@ -35,16 +23,21 @@ const char *Stage::toString() const {
     return _map->toString().c_str();
 }
 
-void Stage::removeActor(Actor *actor) {
-    _map->removeContent(*actor->getVector());
-    for (std::vector<Actor *>::iterator iter = _actors.begin(); iter != _actors.end(); ++iter) {
-        if (*iter == actor) {
+bool Stage::add(Dynamic *aDynamic, const Vector &vector) {
+    if (_map->set(aDynamic, vector)) {
+        _actors.push_back(aDynamic);
+        return true;
+    }
+    return false;
+}
+
+void Stage::remove(Dynamic *aDynamic) {
+    _map->removeContent(*aDynamic->getVector());
+    for (auto iter = _actors.begin(); iter != _actors.end(); ++iter) {
+        if (*iter == aDynamic) {
             _actors.erase(iter);
             break;
         }
     }
-    /*
-    std::vector<Actor *>::iterator newEnd = std::remove(_actors.begin(), _actors.end(), actor);
-    _actors.erase(newEnd, _actors.end());*/
 }
 

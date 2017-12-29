@@ -15,7 +15,7 @@ const bool VisitorDynamicItem::visit(Item *item) const {
 
 const bool VisitorDynamicItem::visit(ActorHuman *actorHuman) const {
     if (actorHuman->addItem(_item)) {
-        _item->addEvent(new EventDynamicDisapear());
+        _item->setActive(false);
         return true;
     }
     return false;

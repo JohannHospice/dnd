@@ -100,6 +100,6 @@ add_executable(DnD
         src/TerminalOutputGnome.cpp
         src/TerminalInputGnome.cpp
         src/TerminalCurses.cpp
-        src/GameStatePause.cpp src/Spawner.cpp include/Spawner.h src/FactoryStatistic.cpp include/FactoryStatistic.h src/MapBuilder.cpp include/MapBuilder.h src/Map.cpp include/Map.h src/BehaviorRandom.cpp include/BehaviorRandom.h src/MapPieceCorridor.cpp include/MapPieceCorridor.h src/VisitorDynamicStage.cpp include/VisitorDynamicStage.h src/GameStateMenuOver.cpp include/GameStateMenuOver.h src/FactoryItem.cpp include/FactoryItem.h src/ItemPotion.cpp include/ItemPotion.h src/GameStateMenu.cpp include/GameStateMenu.h)
+        src/GameStatePause.cpp src/Spawner.cpp include/Spawner.h src/FactoryStatistic.cpp include/FactoryStatistic.h src/MapBuilder.cpp include/MapBuilder.h src/Map.cpp include/Map.h src/BehaviorRandom.cpp include/BehaviorRandom.h src/MapPieceCorridor.cpp include/MapPieceCorridor.h src/VisitorDynamicUpdate.cpp include/VisitorDynamicUpdate.h src/GameStateMenuOver.cpp include/GameStateMenuOver.h src/FactoryItem.cpp include/FactoryItem.h src/ItemPotion.cpp include/ItemPotion.h src/GameStateMenu.cpp include/GameStateMenu.h src/VisitorDynamicInteractHuman.cpp src/VisitorDynamicInteractHuman.h)
 
 target_link_libraries(DnD ${CURSES_LIBRARIES})

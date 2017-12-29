@@ -24,3 +24,7 @@ ActorMonster::ActorMonster(const std::string &name, Statistic *statistic, Item *
 const bool ActorMonster::accept(const VisitorDynamic &visitor) {
     return visitor.visit(this);
 }
+
+const bool ActorMonster::hasItem() const {
+    return _item != nullptr;
+}

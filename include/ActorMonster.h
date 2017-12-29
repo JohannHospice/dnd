@@ -28,10 +28,11 @@ public:
 
     const bool accept(const VisitorDynamic &pDynamic) override;
 
-protected:
+    const bool hasItem() const;
 
 private:
     Item *_item;
+
     Behavior *_behavior;
 };
 
