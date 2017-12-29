@@ -3,6 +3,7 @@
 
 #include "Item.h"
 #include "Actor.h"
+#include "CapsuleItem.h"
 
 class Behavior;
 
@@ -13,6 +14,8 @@ public:
     ActorMonster(const std::string &name, Statistic *statistic, Item *item);
 
     ActorMonster(const std::string &name, Statistic *statistic);
+
+    ActorMonster(const std::string &name, Statistic *statistic, CapsuleItem *item);
 
     ~ActorMonster() override;
 

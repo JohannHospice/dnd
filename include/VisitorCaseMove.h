@@ -6,7 +6,7 @@
 #define DND_VISITORCASEMOVE_H
 
 #include "VisitorCase.h"
-#include "Item.h"
+#include "CapsuleItem.h"
 #include "VisitorDynamic.h"
 
 class VisitorCaseMove : public VisitorCase {

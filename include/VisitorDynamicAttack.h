@@ -13,7 +13,7 @@ class VisitorDynamicAttack : public VisitorDynamic {
 public:
     explicit VisitorDynamicAttack(Actor *pHuman);
 
-    const bool visit(Item *item) const override;
+    const bool visit(CapsuleItem *item) const override;
 
     const bool visit(ActorHuman *actorHuman) const override;
 

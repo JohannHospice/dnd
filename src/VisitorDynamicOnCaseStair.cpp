@@ -2,8 +2,9 @@
 // Created by karibukai on 26/12/17.
 //
 
+#include <GameState.h>
+#include <GameStatePlay.h>
 #include "VisitorDynamicOnCaseStair.h"
-#include "EventActorStair.h"
 #include "VisitorDynamicInteract.h"
 
 VisitorDynamicOnCaseStair::VisitorDynamicOnCaseStair(CaseStair *pStair) {
@@ -12,7 +13,7 @@ VisitorDynamicOnCaseStair::VisitorDynamicOnCaseStair(CaseStair *pStair) {
 
 const bool VisitorDynamicOnCaseStair::visit(ActorHuman *actorHuman) const {
     if (visitByDynamic(actorHuman)) {
-        actorHuman->addEvent(new EventActorStair(_stair->getStair()));
+        GameStatePlay::instance()->changeStage(_stair->getStair());
         return true;
     }
     return false;
@@ -22,7 +23,7 @@ const bool VisitorDynamicOnCaseStair::visit(ActorMonster *actorMonster) const {
     return visitByDynamic(actorMonster);
 }
 
-const bool VisitorDynamicOnCaseStair::visit(Item *item) const {
+const bool VisitorDynamicOnCaseStair::visit(CapsuleItem *item) const {
     return visitByDynamic(item);
 }
 

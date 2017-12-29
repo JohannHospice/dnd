@@ -34,6 +34,8 @@ public:
 
     void gameWin();
 
+    void changeStage(const int stair);
+
 private:
     GameStatePlay() = default;
 
@@ -54,6 +56,8 @@ private:
     bool _win = false, _loose = false;
 
     PlayMemento *_lastMemento;
+
+    void setActiveStage(const int stair);
 };
 
 #endif // STATEPLAY_H

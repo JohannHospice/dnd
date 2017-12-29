@@ -26,11 +26,15 @@ public:
     std::vector<Dynamic *> getActors() const { return _actors; }
 
     bool add(Dynamic *aDynamic, const Vector &vector);
+
+    const Vector *entry();
+
 private:
 
     std::vector<Dynamic *> _actors;
 
     Map *_map;
+    Vector *_entry;
 };
 
 #endif // STAGE_H

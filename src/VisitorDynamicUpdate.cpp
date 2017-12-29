@@ -5,12 +5,8 @@
 #include <GameStatePlay.h>
 #include "VisitorDynamicUpdate.h"
 
-const bool VisitorDynamicUpdate::visit(Item *item) const {
-    if (!item->isActive()) {
-        _stage->remove(item);
-        return true;
-    }
-    return false;
+const bool VisitorDynamicUpdate::visit(CapsuleItem *item) const {
+    return true;
 }
 
 const bool VisitorDynamicUpdate::visit(ActorHuman *actorHuman) const {
@@ -27,8 +23,8 @@ const bool VisitorDynamicUpdate::visit(ActorMonster *actorMonster) const {
         actorMonster->update(_stage->getMap());
         return true;
     }
-    _stage->remove(actorMonster);
+    actorMonster->removeFromStage();
     if (actorMonster->hasItem())
-        _stage->add(actorMonster->getItem(), *actorMonster->getVector());
+        _stage->add(new CapsuleItem(_stage, actorMonster->getItem()), *actorMonster->getVector());
     return false;
 }

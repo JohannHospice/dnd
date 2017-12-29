@@ -1,7 +1,16 @@
 #include <Actor.h>
-#include "Map.h"
+#include <Stage.h>
 
-Actor::Actor(const std::string &name, Statistic *statistic) : _name(name), _statistic(statistic) {
+#include <utility>
+
+Actor::Actor(Stage *stage, const std::string &name, Statistic *statistic) : Dynamic(stage), _name(std::move(name)),
+                                                                            _statistic(statistic) {
+    _state = new ActorStateDirection();
+    _life = statistic->getLife();
+}
+
+
+Actor::Actor(const std::string &name, Statistic *statistic) : _name(std::move(name)), _statistic(statistic) {
     _state = new ActorStateDirection();
     _life = statistic->getLife();
 }
@@ -28,8 +37,9 @@ const bool Actor::hurt(Actor *a) {
 
 const bool Actor::hurt(int damage) {
     _life -= damage;
-    if (_life <= 0){
+    if (_life <= 0) {
         _life = 0;
+        removeFromStage();
     }
     return true;
 }
@@ -79,4 +89,3 @@ bool Actor::moveRight(Map *map) {
 const bool Actor::isAlive() const {
     return _life > 0;
 }
-

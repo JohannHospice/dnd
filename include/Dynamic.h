@@ -4,29 +4,33 @@
 #include <vector>
 #include "Vector.h"
 #include "Characterisable.h"
-#include "EventDynamic.h"
 
 class VisitorDynamic;
 
+class Stage;
+
 class Dynamic : public Characterisable {
 public:
+    explicit Dynamic(Stage *stage);
+
+    Dynamic();
+
     virtual ~Dynamic();
 
     const Vector *getVector() const;
 
     void setVector(const Vector &vector);
 
-    void addEvent(EventDynamic *event);
-
-
     virtual const bool accept(const VisitorDynamic &pDynamic) = 0;
 
-protected:
+    void removeFromStage();
 
-    std::vector<EventDynamic *> _events;
 private:
+    Stage *_stage;
 
     Vector *_vector = new Vector();
+
+    void setStage(Stage *stage);
 };
 
 #endif // DYNAMIC_H

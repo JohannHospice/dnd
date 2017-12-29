@@ -3,19 +3,18 @@
 //
 
 #include "VisitorDynamicItem.h"
-#include "EventDynamicDisapear.h"
 
-VisitorDynamicItem::VisitorDynamicItem(Item *item) {
+VisitorDynamicItem::VisitorDynamicItem(CapsuleItem *item) {
     _item = item;
 }
 
-const bool VisitorDynamicItem::visit(Item *item) const {
+const bool VisitorDynamicItem::visit(CapsuleItem *item) const {
     return false;
 }
 
 const bool VisitorDynamicItem::visit(ActorHuman *actorHuman) const {
-    if (actorHuman->addItem(_item)) {
-        _item->setActive(false);
+    if (actorHuman->addItem(_item->take())) {
+        _item->removeFromStage();
         return true;
     }
     return false;

@@ -91,3 +91,13 @@ char *GameStatePlay::getInfo(Actor *actor) const {
     return info;
 }
 
+void GameStatePlay::changeStage(const int stair) {
+    getActiveStage()->remove(_actorHuman);
+    setActiveStage(stair);
+    getActiveStage()->add(_actorHuman, *getActiveStage()->entry());
+}
+
+void GameStatePlay::setActiveStage(const int stair) {
+    _activeStage = stair;
+}
+

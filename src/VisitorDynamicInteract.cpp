@@ -4,14 +4,13 @@
 
 #include "VisitorDynamicInteract.h"
 #include "VisitorDynamicAttack.h"
-#include "VisitorDynamicItem.h"
 #include "VisitorDynamicInteractHuman.h"
 
 VisitorDynamicInteract::VisitorDynamicInteract(Dynamic *pDynamic) {
     _dynamic = pDynamic;
 }
 
-const bool VisitorDynamicInteract::visit(Item *item) const {
+const bool VisitorDynamicInteract::visit(CapsuleItem *item) const {
     return false;
 }
 

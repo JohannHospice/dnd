@@ -48,7 +48,7 @@
 		<Unit filename="include/GameRunner.h" />
 		<Unit filename="include/GameState.h" />
 		<Unit filename="include/Inventory.h" />
-		<Unit filename="include/Item.h" />
+		<Unit filename="include/ItemCapsule.h" />
 		<Unit filename="include/PlayMemento.h" />
 		<Unit filename="include/Stage.h" />
 		<Unit filename="include/GameStateMenuMain.h" />
@@ -71,7 +71,7 @@
 		<Unit filename="src/GameRunner.cpp" />
 		<Unit filename="src/GameState.cpp" />
 		<Unit filename="src/Inventory.cpp" />
-		<Unit filename="src/Item.cpp" />
+		<Unit filename="src/ItemCapsule.cpp" />
 		<Unit filename="src/PlayMemento.cpp" />
 		<Unit filename="src/Stage.cpp" />
 		<Unit filename="src/GameStateMenuMain.cpp" />

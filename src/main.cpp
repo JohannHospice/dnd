@@ -1,7 +1,6 @@
 #include <GameEngine.h>
 #include <GameStateMenuMain.h>
 #include <GameRunner.h>
-#include <TerminalCurses.h>
 #include <TerminalGnome.h>
 
 int main() {

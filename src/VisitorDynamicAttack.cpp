@@ -4,7 +4,7 @@ VisitorDynamicAttack::VisitorDynamicAttack(Actor *pHuman) {
     _actor = pHuman;
 }
 
-const bool VisitorDynamicAttack::visit(Item *item) const {
+const bool VisitorDynamicAttack::visit(CapsuleItem *item) const {
     return false;
 }
 

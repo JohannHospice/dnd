@@ -13,7 +13,7 @@ class VisitorDynamicOnCaseStair : public VisitorDynamic {
 public:
     explicit VisitorDynamicOnCaseStair(CaseStair *pStair);
 
-    const bool visit(Item *item) const override;
+    const bool visit(CapsuleItem *item) const override;
 
     const bool visit(ActorHuman *actorHuman) const override;
 

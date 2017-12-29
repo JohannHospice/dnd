@@ -4,8 +4,6 @@
 #include <vector>
 #include "Actor.h"
 #include "Inventory.h"
-#include "Action.h"
-#include "EventDynamic.h"
 
 #define DEFAULT_INVENTORY_SIZE 10
 
@@ -18,6 +16,8 @@ public:
     const bool accept(const VisitorDynamic &pDynamic) override;
 
     const bool addItem(Item *pItem);
+
+    void use(Item *item);
 
 protected:
 

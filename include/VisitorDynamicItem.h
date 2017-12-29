@@ -10,16 +10,16 @@
 
 class VisitorDynamicItem : public VisitorDynamic {
 public:
-    explicit VisitorDynamicItem(Item *item);
+    explicit VisitorDynamicItem(CapsuleItem *item);
 
-    const bool visit(Item *item) const override;
+    const bool visit(CapsuleItem *item) const override;
 
     const bool visit(ActorHuman *actorHuman) const override;
 
     const bool visit(ActorMonster *actorMonster) const override;
 
 private:
-    Item *_item;
+    CapsuleItem *_item;
 };
 
 

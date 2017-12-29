@@ -1,27 +1,17 @@
-#ifndef ITEM_H
-#define ITEM_H
+//
+// Created by djihe on 29/12/2017.
+//
 
-#include "Actor.h"
-#include "Dynamic.h"
+#ifndef DND_ITEM_H
+#define DND_ITEM_H
 
-class Item : public Dynamic {
+class Actor;
+
+class Item {
 public:
-    virtual ~Item();
-
     virtual void use(Actor *actor)=0;
 
-    virtual Item *clone() const = 0;
-
-    const char getChar() const override;
-
-    const bool accept(const VisitorDynamic &visitor) override;
-
-    const bool isActive() const;
-
-    void setActive(bool active);
-
-private:
-    bool _active;
 };
 
-#endif // ITEM_H
+
+#endif //DND_ITEM_H

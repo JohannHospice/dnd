@@ -10,6 +10,10 @@ class Map;
 
 class Actor : public Dynamic {
 public:
+    Actor(Stage *stage, const std::string &name, Statistic *statistic);
+
+    Actor(const std::string &name, Statistic *statistic);
+
     virtual void update(Map *map) = 0;
 
     const char getChar() const override;
@@ -42,7 +46,6 @@ public:
     const int getLife() const;
 
 protected:
-    Actor(const std::string &name, Statistic *statistic);
 
     int _life;
     std::string _name;

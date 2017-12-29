@@ -2,10 +2,8 @@ cmake_minimum_required(VERSION 3.6.3)
 set(CMAKE_CXX_STANDARD 11)
 
 project(DnD)
-
-find_package(Curses REQUIRED)
-
-include_directories(${CURSES_INCLUDE_DIR})
+# find_package(Curses REQUIRED)
+# include_directories(${CURSES_INCLUDE_DIR})
 include_directories(include)
 
 add_executable(DnD
@@ -23,7 +21,7 @@ add_executable(DnD
         include/GameRunner.h
         include/GameState.h
         include/Inventory.h
-        include/Item.h
+        include/CapsuleItem.h
         include/MapPiece.h
         include/PlayMemento.h
         include/Stage.h
@@ -35,17 +33,13 @@ add_executable(DnD
         include/MapPieceRoom.h
         include/CaseWall.h
         include/Characterisable.h
-        include/Action.h
         include/VisitorCase.h
         include/VisitorCaseMove.h
         include/VisitorDynamic.h
         include/VisitorDynamicOnCaseStair.h
-        include/EventActorStair.h
-        include/EventDynamic.h
         include/VisitorDynamicInteract.h
         include/VisitorDynamicAttack.h
         include/VisitorDynamicItem.h
-        include/EventDynamicDisapear.h
         include/VisitorCaseRemove.h
         include/TerminalOutputCurses.h
         include/TerminalOutput.h
@@ -70,7 +64,7 @@ add_executable(DnD
         src/GameRunner.cpp
         src/GameState.cpp
         src/Inventory.cpp
-        src/Item.cpp
+        src/CapsuleItem.cpp
         src/MapPiece.cpp
         src/PlayMemento.cpp
         src/Stage.cpp
@@ -85,12 +79,9 @@ add_executable(DnD
         src/CaseFloor.cpp
         src/VisitorCaseMove.cpp
         src/VisitorDynamicOnCaseStair.cpp
-        src/EventActorStair.cpp
-        src/EventDynamic.cpp
         src/VisitorDynamicInteract.cpp
         src/VisitorDynamicAttack.cpp
         src/VisitorDynamicItem.cpp
-        src/EventDynamicDisapear.cpp
         src/VisitorCaseRemove.cpp
         src/main.cpp
         src/TerminalOutputCurses.cpp
@@ -100,6 +91,29 @@ add_executable(DnD
         src/TerminalOutputGnome.cpp
         src/TerminalInputGnome.cpp
         src/TerminalCurses.cpp
-        src/GameStatePause.cpp src/Spawner.cpp include/Spawner.h src/FactoryStatistic.cpp include/FactoryStatistic.h src/MapBuilder.cpp include/MapBuilder.h src/Map.cpp include/Map.h src/BehaviorRandom.cpp include/BehaviorRandom.h src/MapPieceCorridor.cpp include/MapPieceCorridor.h src/VisitorDynamicUpdate.cpp include/VisitorDynamicUpdate.h src/GameStateMenuOver.cpp include/GameStateMenuOver.h src/FactoryItem.cpp include/FactoryItem.h src/ItemPotion.cpp include/ItemPotion.h src/GameStateMenu.cpp include/GameStateMenu.h src/VisitorDynamicInteractHuman.cpp src/VisitorDynamicInteractHuman.h)
+        src/GameStatePause.cpp
+        src/Spawner.cpp
+        src/FactoryStatistic.cpp
+        include/FactoryStatistic.h
+        src/MapBuilder.cpp
+        include/MapBuilder.h
+        src/Map.cpp
+        include/Map.h
+        src/BehaviorRandom.cpp
+        include/BehaviorRandom.h
+        src/MapPieceCorridor.cpp
+        include/MapPieceCorridor.h
+        src/VisitorDynamicUpdate.cpp
+        include/VisitorDynamicUpdate.h
+        src/GameStateMenuOver.cpp
+        include/GameStateMenuOver.h
+        src/FactoryItem.cpp
+        include/FactoryItem.h
+        src/ItemPotion.cpp
+        include/ItemPotion.h
+        src/GameStateMenu.cpp
+        include/GameStateMenu.h
+        src/VisitorDynamicInteractHuman.cpp
+        include/VisitorDynamicInteractHuman.h src/Item.cpp include/Item.h)
 
-target_link_libraries(DnD ${CURSES_LIBRARIES})
+# target_link_libraries(DnD ${CURSES_LIBRARIES})

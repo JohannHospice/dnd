@@ -41,3 +41,7 @@ void Stage::remove(Dynamic *aDynamic) {
     }
 }
 
+const Vector *Stage::entry() {
+    return _entry;
+}
+

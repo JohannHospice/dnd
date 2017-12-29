@@ -14,8 +14,6 @@ public:
 
     void use(Actor *actor) override;
 
-    Item *clone() const override;
-
 private:
     int _heal;
 };

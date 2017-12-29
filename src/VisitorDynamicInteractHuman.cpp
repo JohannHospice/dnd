@@ -6,7 +6,7 @@
 #include <VisitorDynamicAttack.h>
 #include "VisitorDynamicInteractHuman.h"
 
-const bool VisitorDynamicInteractHuman::visit(Item *item) const {
+const bool VisitorDynamicInteractHuman::visit(CapsuleItem *item) const {
     return _human->accept(VisitorDynamicItem(item));
 }
 

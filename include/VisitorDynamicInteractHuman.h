@@ -7,13 +7,14 @@
 
 
 #include <VisitorDynamic.h>
+
 class ActorHuman;
 
 class VisitorDynamicInteractHuman : public VisitorDynamic { ;
 public:
-    explicit VisitorDynamicInteractHuman(ActorHuman *human): _human(human){}
+    explicit VisitorDynamicInteractHuman(ActorHuman *human) : _human(human) {}
 
-    const bool visit(Item *item) const override;
+    const bool visit(CapsuleItem *item) const override;
 
     const bool visit(ActorHuman *actorHuman) const override;
 
