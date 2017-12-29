@@ -32,6 +32,18 @@ public:
     Vector *copy() const {
         return new Vector(_x, _y);
     }
+    static Vector *up() {
+        return new Vector(0, 1);
+    }
+    static Vector *down() {
+        return new Vector(0, -1);
+    }
+    static Vector *left() {
+        return new Vector(-1, 0);
+    }
+    static Vector *right() {
+        return new Vector(1, 0);
+    }
 
 private:
     int _x, _y;

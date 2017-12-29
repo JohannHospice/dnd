@@ -22,6 +22,8 @@ public:
     const bool onBorder(int x, int y) const;
 
     const bool inBoundOutBorder(int x, int y) const;
+
+    Case ***initRoom(int sizeX, int sizeY);
 };
 
 

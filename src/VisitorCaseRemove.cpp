@@ -19,6 +19,8 @@ const bool VisitorCaseRemove::visit(CaseWall *wall) const {
 }
 
 const bool VisitorCaseRemove::visitByCaseCarry(CaseCarry *caseCarry) const {
-    caseCarry->setContent(nullptr);
-    return true;
+    if (caseCarry->hasContent()) {
+        caseCarry->setContent(nullptr);
+        return true;
+    } else return false;
 }

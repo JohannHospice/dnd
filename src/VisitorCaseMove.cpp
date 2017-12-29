@@ -1,7 +1,3 @@
-//
-// Created by karibukai on 26/12/17.
-//
-
 #include <Actor.h>
 #include <VisitorCaseMove.h>
 #include "VisitorDynamicOnCaseStair.h"
@@ -12,14 +8,16 @@ VisitorCaseMove::VisitorCaseMove(Dynamic *d) {
 }
 
 const bool VisitorCaseMove::visit(CaseFloor *caseFloor) const {
-    if (caseFloor->hasContent())
-        return _dynamic->accept(new VisitorDynamicInteract(caseFloor->getContent()));
+    if (caseFloor->hasContent()) {
+        _dynamic->accept(VisitorDynamicInteract(caseFloor->getContent()));
+        return false;
+    }
     caseFloor->setContent(_dynamic);
     return true;
 }
 
 const bool VisitorCaseMove::visit(CaseStair *caseStair) const {
-    return _dynamic->accept(new VisitorDynamicOnCaseStair(caseStair));
+    return _dynamic->accept(VisitorDynamicOnCaseStair(caseStair));
 }
 
 const bool VisitorCaseMove::visit(CaseWall *) const {

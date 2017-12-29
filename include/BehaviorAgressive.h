@@ -10,7 +10,7 @@ public:
 
     virtual ~BehaviorAgressive();
 
-    void act(ActorMonster const &monster, Stage const &stage) override;
+    void act(ActorMonster *monster, Map *map) override;
 
 protected:
 

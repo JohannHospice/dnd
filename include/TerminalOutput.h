@@ -6,7 +6,6 @@
 #define DND_TERMINALOUTPUT_H
 
 class Map;
-
 class TerminalOutput {
 public:
     virtual void clear() const = 0;

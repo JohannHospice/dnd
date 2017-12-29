@@ -11,13 +11,13 @@ VisitorDynamicInteract::VisitorDynamicInteract(Dynamic *pDynamic) {
 }
 
 const bool VisitorDynamicInteract::visit(Item *item) const {
-    return _dynamic->accept(new VisitorDynamicItem(item));
+    return _dynamic->accept(VisitorDynamicItem(item));
 }
 
 const bool VisitorDynamicInteract::visit(ActorHuman *actorHuman) const {
-    return _dynamic->accept(new VisitorDynamicAttack(actorHuman));
+    return _dynamic->accept(VisitorDynamicAttack(actorHuman));
 }
 
 const bool VisitorDynamicInteract::visit(ActorMonster *actorMonster) const {
-    return _dynamic->accept(new VisitorDynamicAttack(actorMonster));
+    return _dynamic->accept(VisitorDynamicAttack(actorMonster));
 }

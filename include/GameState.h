@@ -23,8 +23,6 @@ public:
 
 protected:
     GameState() {}
-
-private:
 };
 
 #endif // GAMELISTENER_H

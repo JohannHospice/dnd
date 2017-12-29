@@ -1,23 +1,10 @@
 #include "Map.h"
 #include <MapPiece.h>
-#include <CaseWall.h>
-
-void Map::init(int sizeX, int sizeY) {
-    _sizeX = sizeX;
-    _sizeY = sizeY;
-    _cases = new Case **[sizeX];
-    for (int i = 0; i < sizeY; ++i) {
-        _cases[i] = new Case *[sizeX];
-        //todo replace by filling if empty att build end
-        for (int j = 0; j < sizeX; ++j) {
-            _cases[i][j] = new CaseWall(CaseWall::EMPTY);
-        }
-    }
-
-}
+#include <VisitorCaseRemove.h>
+#include <VisitorCaseMove.h>
 
 Map::Map(int sizeX, int sizeY) : _sizeX(sizeX), _sizeY(sizeY) {
-    init(sizeX, sizeY);
+    _cases = init(sizeX, sizeY);
 }
 
 std::string Map::toString() const {
@@ -58,14 +45,6 @@ void Map::setSizeY(int _sizeY) {
     Map::_sizeY = _sizeY;
 }
 
-Case ***Map::getCases() const {
-    return _cases;
-}
-
-void Map::setCases(Case ***_cases) {
-    Map::_cases = _cases;
-}
-
 void Map::setCase(int x, int y, Case *c) {
     _cases[x][y] = c;
 }
@@ -74,18 +53,49 @@ Case *Map::getCase(const Vector &vector) {
     return _cases[vector.getX()][vector.getY()];
 }
 
-void Map::add(MapPiece *piece) {
-    Case ***oldCases = _cases;
-    int oldSizeX = _sizeX, oldSizeY = _sizeY;
+const bool Map::move(Dynamic *dynamic, Vector const &destination) {
+    const Vector source = *dynamic->getVector();
+    if (set(dynamic, destination)) {
+        removeContent(source);
+        return true;
+    }
+    return false;
+}
 
-    init(getSizeX() + piece->getSizeX() + piece->getOriginX(),
-         getSizeY() + piece->getSizeY() + piece->getOriginY());
+const bool Map::set(Dynamic *pDynamic, const Vector &destination) {
+    if (inBound(destination))
+        if (getCase(destination)->accept(VisitorCaseMove(pDynamic))) {
+            pDynamic->setVector(destination);
+            return true;
+        }
+    return false;
+}
 
-    for (int x = 0; x < oldSizeX; ++x)
-        for (int y = 0; y < oldSizeY; ++y)
-            _cases[x][y] = oldCases[x][y];
+const bool Map::removeContent(const Vector &source) {
+    if (inBound(source))
+        return getCase(source)->accept(VisitorCaseRemove());
+    return false;
+}
 
-    for (int x = piece->getOriginX(); x < piece->getSizeX(); ++x)
-        for (int y = piece->getOriginY(); y < piece->getSizeY(); ++y)
-            _cases[x][y] = piece->getCase(x, y);
+
+Case ***Map::init(int sizeX, int sizeY) {
+    Case ***_cases = new Case **[sizeX];
+    for (int i = 0; i < sizeX; ++i)
+        _cases[i] = new Case *[sizeY];
+    return _cases;
+}
+
+void Map::fill() {
+    for (int i = 0; i < _sizeX; ++i)
+        for (int j = 0; j < _sizeY; ++j)
+            if (_cases[i][j] == nullptr)
+                _cases[i][j] = new CaseWall(CaseWall::EMPTY);
+}
+
+void Map::add(const MapPiece &piece) {
+    int originX = piece.getOriginX(), originY = piece.getOriginY();
+
+    for (int x = originX; x < originX + piece.getSizeX(); ++x)
+        for (int y = originY; y < originY + piece.getSizeY(); ++y)
+            _cases[x][y] = piece.getCase(x - originX, y - originY);
 }

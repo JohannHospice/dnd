@@ -9,8 +9,12 @@
 #include <Case.h>
 #include <vector>
 #include "Vector.h"
+#include "CaseWall.h"
 #include <string>
+
 class MapPiece;
+
+class Dynamic;
 
 class Map {
 public:
@@ -40,15 +44,25 @@ public:
 
     Case *getCase(const Vector &vector);
 
-    void add(MapPiece *piece);
-
     void setCase(int x, int y, Case *c);
 
-protected:
-    int _sizeX, _sizeY;
-    Case ***_cases;
-    void init(int sizeX, int sizeY);
+    const bool move(Dynamic *dynamic, const Vector &destination);
 
+    const bool set(Dynamic *pDynamic, const Vector &destination);
+
+    const bool removeContent(const Vector &source);
+
+    void add(const MapPiece &piece);
+
+    void fill();
+
+protected:
+
+    int _sizeX, _sizeY;
+
+    Case ***_cases;
+
+    Case ***init(int sizeX, int sizeY);
 };
 
 

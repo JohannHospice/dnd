@@ -1,34 +1,26 @@
+#include <ActorHuman.h>
 #include "Stage.h"
-#include "VisitorCaseMove.h"
-#include "VisitorCaseRemove.h"
+#include "VisitorDynamicStage.h"
 
-Stage::Stage() {}
+Stage::Stage(Map *pMap) : _map(pMap) {}
 
 Stage::~Stage() {}
 
+void Stage::update() {
+    for (auto actor: _actors) {
+        actor->update(_map);
+    }
+    for (auto actor: _actors) {
+        actor->accept(VisitorDynamicStage(this));
+    }
+}
 
-const bool Stage::move(Dynamic *dynamic, Vector const &destination) {
-    const Vector source = *dynamic->getVector();
-    if (set(dynamic, destination)) {
-        if (_map->inBound(source))
-            _map->getCase(source)->accept(*(new VisitorCaseRemove()));
+bool Stage::addActor(Actor *actor, const Vector &vector) {
+    if (_map->set(actor, vector)) {
+        _actors.push_back(actor);
         return true;
     }
     return false;
-}
-
-const bool Stage::set(Dynamic *pDynamic, const Vector &destination) {
-    if (_map->inBound(destination))
-        if (_map->getCase(destination)->accept(*(new VisitorCaseMove(pDynamic)))) {
-            pDynamic->setVector(destination);
-            return true;
-        }
-    return false;
-}
-
-void Stage::update() {
-    for (auto actor: _actors)
-        actor->update(this);
 }
 
 void Stage::setMap(Map *map) {
@@ -41,5 +33,18 @@ Map *Stage::getMap() const {
 
 const char *Stage::toString() const {
     return _map->toString().c_str();
+}
+
+void Stage::removeActor(Actor *actor) {
+    _map->removeContent(*actor->getVector());
+    for (std::vector<Actor *>::iterator iter = _actors.begin(); iter != _actors.end(); ++iter) {
+        if (*iter == actor) {
+            _actors.erase(iter);
+            break;
+        }
+    }
+    /*
+    std::vector<Actor *>::iterator newEnd = std::remove(_actors.begin(), _actors.end(), actor);
+    _actors.erase(newEnd, _actors.end());*/
 }
 

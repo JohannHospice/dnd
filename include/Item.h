@@ -12,9 +12,9 @@ public:
 
     virtual Item *clone() const = 0;
 
-protected:
+    const char getChar() const override;
 
-private:
+    const bool accept(const VisitorDynamic &visitor) override;
 };
 
 #endif // ITEM_H

@@ -1,12 +1,13 @@
-#ifndef BEHAVIOconstR_H
+#ifndef BEHAVIOR_H
 #define BEHAVIOR_H
 
 #include "Stage.h"
-#include "ActorMonster.h"
+
+class ActorMonster;
 
 class Behavior {
 public:
-    virtual void act(ActorMonster const &monster, Stage const &stage) = 0;
+    virtual void act(ActorMonster *monster, Map *map) =0;
 
 protected:
 

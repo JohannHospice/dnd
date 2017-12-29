@@ -12,9 +12,9 @@ class ActorHuman : public Actor {
 public:
     ActorHuman(const std::string &name, Statistic *statistic);
 
-    void update(Stage *stage) override;
+    void update(Map *map) override;
 
-    const bool accept(VisitorDynamic *pDynamic) override;
+    const bool accept(const VisitorDynamic &pDynamic) override;
 
     const bool addItem(Item *pItem);
 

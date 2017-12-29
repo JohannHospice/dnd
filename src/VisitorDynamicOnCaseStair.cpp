@@ -28,7 +28,7 @@ const bool VisitorDynamicOnCaseStair::visit(Item *item) const {
 
 const bool VisitorDynamicOnCaseStair::visitByDynamic(Dynamic *aDynamic) const {
     if (_stair->hasContent())
-        return aDynamic->accept(new VisitorDynamicInteract(_stair->getContent()));
+        return aDynamic->accept(VisitorDynamicInteract(_stair->getContent()));
     _stair->setContent(aDynamic);
     return true;
 }

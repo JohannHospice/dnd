@@ -20,6 +20,8 @@ public:
     const bool visit(CaseWall *) const override;
 
 private:
+    const bool visitCaseCarry(CaseCarry *caseCarry) const;
+
     Dynamic *_dynamic;
 };
 

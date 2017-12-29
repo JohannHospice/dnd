@@ -6,13 +6,11 @@
 #include "Statistic.h"
 #include "ActorStateDirection.h"
 
-class Stage;
+class Map;
 
 class Actor : public Dynamic {
 public:
-
-
-    virtual void update(Stage *stage) = 0;
+    virtual void update(Map *map) = 0;
 
     const char getChar() const override;
 
@@ -26,17 +24,31 @@ public:
 
     const bool attack(Actor *pActor);
 
-    void setDirection(ActorStateDirection::Direction direction);
+    const bool isAlive() const;
+
 
     const ActorStateDirection::Direction getDirection() const;
 
     const bool changeState(ActorStateDirection::Direction);
 
+    bool moveUp(Map *map);
+
+    bool moveDown(Map *map);
+
+    bool moveLeft(Map *map);
+
+    bool moveRight(Map *map);
+
+    const int getLife() const;
+
 protected:
     Actor(const std::string &name, Statistic *statistic);
+
+    int _life;
     std::string _name;
     Statistic *_statistic;
     ActorStateDirection *_state = new ActorStateDirection();
+
 };
 
 #endif // ACTOR_H

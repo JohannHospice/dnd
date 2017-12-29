@@ -30,12 +30,20 @@ public:
         return &_self;
     }
 
-protected:
+    void gameOver();
+
+    void gameWin();
 
 private:
     GameStatePlay() = default;
 
     static GameStatePlay _self;
+
+    Stage *getActiveStage();
+
+    const char *getInfoStage() const;
+
+    char *getInfo(Actor *actor) const;
 
     ActorHuman *_actorHuman = nullptr;
 
@@ -43,9 +51,9 @@ private:
 
     int _activeStage;
 
-    Stage *getActiveStage();
+    bool _win = false, _loose = false;
 
-    Vector *add(const Vector &pVector, const Vector &position);
+    PlayMemento *_lastMemento;
 };
 
 #endif // STATEPLAY_H

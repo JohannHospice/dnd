@@ -8,6 +8,7 @@ class Behavior;
 
 class ActorMonster : public Actor {
 public:
+    ActorMonster(const std::string &name, Statistic *statistic, Item *item, Behavior *behavior);
     ActorMonster(const std::string &name, Statistic *statistic, Item *item);
     ActorMonster(const std::string &name, Statistic *statistic);
 
@@ -21,7 +22,9 @@ public:
         _item = val;
     }
 
-    void update(Stage *stage) override;
+    void update(Map *stage) override;
+
+    const bool accept(const VisitorDynamic &pDynamic) override;
 
 protected:
 

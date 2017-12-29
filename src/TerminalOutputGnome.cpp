@@ -1,5 +1,6 @@
 #include "TerminalOutputGnome.h"
 #include <iostream>
+#include "Stage.h"
 
 TerminalOutputGnome::TerminalOutputGnome() = default;
 
@@ -12,8 +13,8 @@ void TerminalOutputGnome::print(const char *str) const {
 }
 
 void TerminalOutputGnome::print(const Map &map) const {
-    for (int x = 0; x < map.getSizeX(); ++x) {
-        for (int y = 0; y < map.getSizeY(); ++y) {
+    for (int y = 0; y < map.getSizeY(); ++y) {
+        for (int x = 0; x < map.getSizeX(); ++x) {
             std::cout << map.getCase(x, y)->getChar() << " ";
         }
         std::cout << std::endl;

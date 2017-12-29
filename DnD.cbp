@@ -51,7 +51,7 @@
 		<Unit filename="include/Item.h" />
 		<Unit filename="include/PlayMemento.h" />
 		<Unit filename="include/Stage.h" />
-		<Unit filename="include/GameStateMenu.h" />
+		<Unit filename="include/GameStateMenuMain.h" />
 		<Unit filename="include/GameStatePlay.h" />
 		<Unit filename="include/Statistic.h" />
 		<Unit filename="include/Vector.h" />
@@ -74,7 +74,7 @@
 		<Unit filename="src/Item.cpp" />
 		<Unit filename="src/PlayMemento.cpp" />
 		<Unit filename="src/Stage.cpp" />
-		<Unit filename="src/GameStateMenu.cpp" />
+		<Unit filename="src/GameStateMenuMain.cpp" />
 		<Unit filename="src/GameStatePlay.cpp" />
 		<Unit filename="src/Statistic.cpp" />
 		<Unit filename="src/Vector.cpp" />

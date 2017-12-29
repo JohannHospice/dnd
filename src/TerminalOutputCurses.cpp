@@ -1,7 +1,7 @@
 #include "TerminalOutputCurses.h"
 #include "Map.h"
 #include <ncurses.h>
-
+#include "Stage.h"
 TerminalOutputCurses::TerminalOutputCurses() = default;
 
 void TerminalOutputCurses::clear() const {
@@ -14,8 +14,8 @@ void TerminalOutputCurses::print(const char *str) const {
 }
 
 void TerminalOutputCurses::print(const Map &map) const {
-    for (int x = 0; x < map.getSizeX(); ++x) {
-        for (int y = 0; y < map.getSizeY(); ++y) {
+    for (int y = 0; y < map.getSizeY(); ++y) {
+        for (int x = 0; x < map.getSizeX(); ++x) {
             printw(new char[2]{map.getCase(x, y)->getChar(), ' '});
         }
         printw("\n");

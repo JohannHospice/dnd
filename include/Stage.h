@@ -4,17 +4,14 @@
 #include "MapPiece.h"
 #include "Dynamic.h"
 #include "Actor.h"
+#include "ActorHuman.h"
 
 
 class Stage {
 public:
-    Stage();
+    Stage(Map *pMap);
 
     virtual ~Stage();
-
-    const bool move(Dynamic *dynamic, const Vector &destination);
-
-    const bool set(Dynamic *pDynamic, const Vector &destination);
 
     void update();
 
@@ -22,16 +19,18 @@ public:
 
     void setMap(Map *map);
 
+    void removeActor(Actor *actor);
+
     const char *toString() const;
 
-protected:
+    bool addActor(Actor *actor, const Vector &vector);
+
+    std::vector<Actor *> getActors() const { return _actors; }
+
 private:
     std::vector<Actor *> _actors;
+
     Map *_map;
-
-    const bool set(Dynamic *pDynamic, Vector *destination);
-
-    const bool move(Dynamic *dynamic, Vector *destination);
 };
 
 #endif // STAGE_H

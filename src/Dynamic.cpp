@@ -13,6 +13,6 @@ void Dynamic::setVector(const Vector &vector) {
     _vector->setY(vector.getY());
 
 }
-Vector *Dynamic::getVector() const {
+const Vector *Dynamic::getVector() const {
     return _vector;
 }

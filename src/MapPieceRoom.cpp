@@ -19,20 +19,26 @@ const bool MapPieceRoom::onBorder(int x, int y) const {
 void MapPieceRoom::setSize(int sizeX, int sizeY) {
     _sizeY = sizeY;
     _sizeX = sizeX;
-
-    for (int j = 1; j < sizeY- 1; ++j)
-        for (int i = 0; i < sizeX; i += sizeX - 1)
-            _cases[j][i] = new CaseWall(CaseWall::VERTICAL);
-
-    for (int i = 0; i < sizeX; i += sizeX - 1)
-        for (int j = 0; j < sizeY ; ++j)
-            _cases[i][j] = new CaseWall(CaseWall::HORIZOTAL);
-
-    for (int i = 1; i < sizeX - 1; ++i)
-        for (int j = 1; j < sizeY - 1; ++j)
-            _cases[i][j] = new CaseFloor(CaseFloor::ROOM);
+    _cases = initRoom(sizeX, sizeY);
 }
 
 const bool MapPieceRoom::inBoundOutBorder(int x, int y) const {
     return inBound(x, y) && !onBorder(x, y);
+}
+
+Case ***MapPieceRoom::initRoom(int sizeX, int sizeY) {
+    Case ***_cases = init(sizeX, sizeY);
+    for (int i = 0; i < sizeY; ++i)
+        for (int j = 0; j < sizeX; j += sizeX - 1)
+            _cases[i][j] = new CaseWall(CaseWall::HORIZOTAL);
+
+    for (int i = 0; i < sizeX; i += sizeX - 1)
+        for (int j = 1; j < sizeY - 1; ++j)
+            _cases[i][j] = new CaseWall(CaseWall::VERTICAL);
+
+    for (int i = 1; i < sizeX - 1; ++i)
+        for (int j = 1; j < sizeY - 1; ++j)
+            _cases[i][j] = new CaseFloor(CaseFloor::ROOM);
+
+    return _cases;
 }

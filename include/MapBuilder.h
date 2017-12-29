@@ -11,12 +11,19 @@
 
 class MapBuilder {
 public:
-    MapBuilder *setRoom(int sizeX, int sizeY, int originX, int originY);
+    MapBuilder *addRoom(int sizeX, int sizeY, int originX, int originY);
 
     Map *build() const;
 
+    MapBuilder *setCaseStair(int piece, int x, int y, int stair);
+
+    MapBuilder *addCorridor(const std::vector<Vector *> &vectors, int originX, int originY);
+
 private:
+
     std::vector<MapPiece *> _pieces;
+
+    int _sizeX, _sizeY;
 };
 
 

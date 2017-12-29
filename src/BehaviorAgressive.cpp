@@ -8,8 +8,7 @@ BehaviorAgressive::~BehaviorAgressive() {
     //dtor
 }
 
-void BehaviorAgressive::act(ActorMonster const &monster, Stage const &stage) {
-
+void BehaviorAgressive::act(ActorMonster *monster, Map *map) {
 }
 /*
 void BehaviorAgressive::act(Stage *stage) {

@@ -1,70 +1,61 @@
+#include <cstring>
 #include "GameStatePlay.h"
 #include "GameStatePause.h"
+#include "GameStateMenuOver.h"
 
 GameStatePlay GameStatePlay::_self;
 
-void GameStatePlay::create() {
+void GameStatePlay::create() {}
 
-}
+void GameStatePlay::dispose() {}
 
-void GameStatePlay::dispose() {
+void GameStatePlay::pause() {}
 
-}
-
-void GameStatePlay::pause() {
-
-}
-
-void GameStatePlay::resume() {
-
-}
+void GameStatePlay::resume() {}
 
 void GameStatePlay::render(GameEngine *game, TerminalOutput *output) {
     output->print(*getActiveStage()->getMap());
+    output->print(getInfoStage());
+    output->print(getInfo(_actorHuman));
 }
 
 Stage *GameStatePlay::getActiveStage() { return _stages.at(_activeStage); }
 
 void GameStatePlay::handleEvent(GameEngine *game, TerminalInput *input) {
     int i = input->input();
-    if (i == input->getEnter())
-        game->changeState(GameStatePause::instance());
-    else if (i == input->getExit()){
+    if (i == input->getExit()) {
         game->popState();
         game->quit();
-    }
-    else {
-        // todo replace by _events
-        if (i == input->getUp()) {
-            if (!_actorHuman->changeState(ActorStateDirection::UP)) {
-                Vector position = *_actorHuman->getVector()->copy();
-                position.addY(1);
-                getActiveStage()->move(_actorHuman, position);
-            }
-        } else if (i == input->getDown()) {
-            if (!_actorHuman->changeState(ActorStateDirection::DOWN)) {
-                Vector position = *_actorHuman->getVector()->copy();
-                position.addY(-1);
-                getActiveStage()->move(_actorHuman, position);
-            }
-        } else if (i == input->getRight()) {
-            if (!_actorHuman->changeState(ActorStateDirection::RIGHT)) {
-                Vector position = *_actorHuman->getVector()->copy();
-                position.addX(1);
-                getActiveStage()->move(_actorHuman, position);
-            }
-        } else if (i == input->getLeft()) {
-            if (!_actorHuman->changeState(ActorStateDirection::LEFT)) {
-                Vector position = *_actorHuman->getVector()->copy();
-                position.addX(-1);
-                getActiveStage()->move(_actorHuman, position);
-            }
-        }
+    } else if (i == input->getEnter())
+        game->changeState(GameStatePause::instance());
+    else if (i == input->getUp())
+        _actorHuman->moveUp(getActiveStage()->getMap());
+    else if (i == input->getDown())
+        _actorHuman->moveDown(getActiveStage()->getMap());
+    else if (i == input->getRight())
+        _actorHuman->moveRight(getActiveStage()->getMap());
+    else if (i == input->getLeft())
+        _actorHuman->moveLeft(getActiveStage()->getMap());
+}
+
+
+void GameStatePlay::update(GameEngine *game) {
+    if (_win) {
+        game->popState();
+    } else if (_loose) {
+        GameStateMenuOver::instance()->setMemento(_lastMemento);
+        game->changeState(GameStateMenuOver::instance());
+    } else {
+        getActiveStage()->update();
     }
 }
 
-void GameStatePlay::update(GameEngine *game) {
-    getActiveStage()->update();
+void GameStatePlay::gameOver() {
+    _loose = true;
+}
+
+void GameStatePlay::gameWin() {
+    _win = true;
 }
 
 PlayMemento *GameStatePlay::save() const {
@@ -75,5 +66,28 @@ void GameStatePlay::restore(PlayMemento *memento) {
     _actorHuman = memento->getActorHuman();
     _stages = memento->getStages();
     _activeStage = memento->getActiveStage();
+    _lastMemento = memento;
+}
+
+const char *GameStatePlay::getInfoStage() const {
+    auto *infoStage = new char[10];
+    sprintf(infoStage, "stage: %d\n", _activeStage);
+    return infoStage;
+}
+
+
+char *GameStatePlay::getInfo(Actor *actor) const {
+    auto *stats = actor->getStatistic();
+    auto v = actor->getVector();
+    auto info = new char[50];
+    auto infoV = new char[10];
+    if (v == nullptr)
+        sprintf(infoV, "null");
+    else
+        sprintf(infoV, "x: %d, y: %d", v->getX(), v->getY());
+    sprintf(info, "(%s), (life: %d/%d, attack: %d, defense: %d,fieldView: %d\n", infoV,
+            actor->getLife(), stats->getLife(), stats->getAttack(),
+            stats->getDefense(), stats->getFieldView());
+    return info;
 }
 
