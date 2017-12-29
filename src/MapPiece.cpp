@@ -1,7 +1,7 @@
 #include "MapPiece.h"
 
 MapPiece::MapPiece(int sizeX, int sizeY, int originX, int originY) : Map(sizeX, sizeY), _originX(originX),
-                                                               _originY(originY) {}
+                                                                     _originY(originY) {}
 
 int MapPiece::getOriginX() const {
     return _originX;

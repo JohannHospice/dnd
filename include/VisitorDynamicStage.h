@@ -8,11 +8,12 @@
 
 #include <Stage.h>
 #include "VisitorDynamic.h"
+
 class Stage;
 
-class VisitorDynamicStage: public VisitorDynamic {
+class VisitorDynamicStage : public VisitorDynamic {
 public:
-    explicit VisitorDynamicStage(Stage *pStage): _stage(pStage){};
+    explicit VisitorDynamicStage(Stage *pStage) : _stage(pStage) {};
 
     const bool visit(Item *item) const override;
 

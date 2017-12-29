@@ -8,9 +8,11 @@
 
 #include <ActorMonster.h>
 
-template<class T> class Spawner {
+template<class T>
+class Spawner {
 public:
     virtual ~Spawner() {}
+
     virtual ActorMonster *spawn() { return new T(); }
 };
 

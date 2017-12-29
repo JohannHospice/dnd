@@ -8,6 +8,7 @@
 #include "EventDynamic.h"
 
 #define DEFAULT_INVENTORY_SIZE 10
+
 class ActorHuman : public Actor {
 public:
     ActorHuman(const std::string &name, Statistic *statistic);

@@ -6,7 +6,7 @@
 
 #include <string>
 #include <vector>
-#include "../GameStateMenu.h"
+#include "GameStateMenu.h"
 
 
 class GameStateMenuMain : public GameStateMenu {
@@ -22,8 +22,10 @@ public:
     static GameStateMenuMain *instance() {
         return &_self;
     }
+
 private:
     static GameStateMenuMain _self;
+
     void chooseOption(GameEngine *pEngine) const override;
 };
 

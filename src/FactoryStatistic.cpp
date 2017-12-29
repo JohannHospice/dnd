@@ -4,22 +4,22 @@
 
 #include "FactoryStatistic.h"
 
-Statistic *FactoryStatistic::makeKnight(){
+Statistic *FactoryStatistic::makeKnight() {
     return new Statistic(15, 13, 13, 7);
 }
 
-Statistic *FactoryStatistic::makeWarrior(){
+Statistic *FactoryStatistic::makeWarrior() {
     return new Statistic(11, 14, 16, 11);
 }
 
-Statistic *FactoryStatistic::makeThief(){
+Statistic *FactoryStatistic::makeThief() {
     return new Statistic(9, 10, 9, 14);
 }
 
-Statistic *FactoryStatistic::makeSorcerer(){
+Statistic *FactoryStatistic::makeSorcerer() {
     return new Statistic(7, 9, 7, 12);
 }
 
-Statistic *FactoryStatistic::makeDeprived(){
+Statistic *FactoryStatistic::makeDeprived() {
     return new Statistic(10, 10, 10, 10);
 }

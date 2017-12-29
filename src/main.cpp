@@ -1,8 +1,6 @@
 #include <GameEngine.h>
 #include <GameStateMenuMain.h>
 #include <GameRunner.h>
-#include <PlayMemento.h>
-#include <GameStatePlay.h>
 #include <TerminalCurses.h>
 
 int main() {

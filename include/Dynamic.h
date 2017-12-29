@@ -12,7 +12,7 @@ class Dynamic : public Characterisable {
 public:
     virtual ~Dynamic();
 
-    const Vector * getVector() const ;
+    const Vector *getVector() const;
 
     void setVector(const Vector &vector);
 
@@ -20,6 +20,7 @@ public:
 
 
     virtual const bool accept(const VisitorDynamic &pDynamic) = 0;
+
 protected:
 
     std::vector<EventDynamic *> _events;

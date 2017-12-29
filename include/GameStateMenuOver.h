@@ -1,7 +1,7 @@
 #ifndef DND_GAMESTATEMENUOVER_H
 #define DND_GAMESTATEMENUOVER_H
 
-#include "../GameStateMenu.h"
+#include "GameStateMenu.h"
 
 class PlayMemento;
 

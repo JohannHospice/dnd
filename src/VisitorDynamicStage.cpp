@@ -19,7 +19,7 @@ const bool VisitorDynamicStage::visit(ActorHuman *actorHuman) const {
 
 const bool VisitorDynamicStage::visit(ActorMonster *actorMonster) const {
     if (!actorMonster->isAlive()) {
-        if(actorMonster->getItem() != nullptr)
+        if (actorMonster->getItem() != nullptr)
             _stage->getMap()->set(actorMonster->getItem(), *actorMonster->getVector());
         _stage->removeActor(actorMonster);
         return true;

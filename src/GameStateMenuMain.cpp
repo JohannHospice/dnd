@@ -5,8 +5,8 @@ GameStateMenuMain GameStateMenuMain::_self;
 
 void GameStateMenuMain::create() {
     _title = "Dungeon and dragon";
-    _options.push_back("play");
-    _options.push_back("exit");
+    _options.emplace_back("play");
+    _options.emplace_back("exit");
     _optionSize = 2;
 }
 

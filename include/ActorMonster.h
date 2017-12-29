@@ -9,7 +9,9 @@ class Behavior;
 class ActorMonster : public Actor {
 public:
     ActorMonster(const std::string &name, Statistic *statistic, Item *item, Behavior *behavior);
+
     ActorMonster(const std::string &name, Statistic *statistic, Item *item);
+
     ActorMonster(const std::string &name, Statistic *statistic);
 
     ~ActorMonster() override;

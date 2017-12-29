@@ -2,6 +2,7 @@
 #include "Map.h"
 #include <ncurses.h>
 #include "Stage.h"
+
 TerminalOutputCurses::TerminalOutputCurses() = default;
 
 void TerminalOutputCurses::clear() const {

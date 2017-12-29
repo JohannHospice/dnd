@@ -8,7 +8,7 @@
 
 #include <MapPiece.h>
 
-class MapPieceCorridor : public MapPiece{
+class MapPieceCorridor : public MapPiece {
 
 public:
     MapPieceCorridor(std::vector<Vector *> vectors, int originX, int originY);
