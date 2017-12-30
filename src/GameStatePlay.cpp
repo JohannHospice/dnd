@@ -28,7 +28,7 @@ void GameStatePlay::handleEvent(GameEngine *game, TerminalInput *input) {
         game->quit();
     } else if (i == input->getEnter()) {
         GameStateMenuPause::instance()->setActorHuman(_actorHuman);
-        game->changeState(GameStateMenuPause::instance());
+        game->pushState(GameStateMenuPause::instance());
     } else if (i == input->getUp())
         _actorHuman->moveUp(getActiveStage()->getMap());
     else if (i == input->getDown())

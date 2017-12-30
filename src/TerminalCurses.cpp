@@ -1,4 +1,3 @@
-#if UNIX
 #include "TerminalCurses.h"
 #include <TerminalInputCurses.h>
 #include <TerminalOutputCurses.h>
@@ -23,4 +22,3 @@ TerminalCurses::TerminalCurses() {
     _input = new TerminalInputCurses();
     _output = new TerminalOutputCurses();
 }
-#endif

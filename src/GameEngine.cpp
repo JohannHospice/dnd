@@ -73,3 +73,8 @@ void GameEngine::render() {
     // let the _direction draw the screen
     _gameStates.back()->render(this, o);
 }
+
+void GameEngine::popStateUntil(GameState *state) {
+    while (_gameStates.back() != state)
+        popState();
+}

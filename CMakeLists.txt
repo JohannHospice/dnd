@@ -2,8 +2,8 @@ cmake_minimum_required(VERSION 3.6.3)
 set(CMAKE_CXX_STANDARD 11)
 
 project(DnD)
-# find_package(Curses REQUIRED)
-# include_directories(${CURSES_INCLUDE_DIR})
+find_package(Curses REQUIRED)
+include_directories(${CURSES_INCLUDE_DIR})
 include_directories(include)
 
 add_executable(DnD
@@ -116,4 +116,4 @@ add_executable(DnD
         src/VisitorDynamicInteractHuman.cpp
         include/VisitorDynamicInteractHuman.h src/Item.cpp include/Item.h src/GameStateMenuInventory.cpp include/GameStateMenuInventory.h)
 
-# target_link_libraries(DnD ${CURSES_LIBRARIES})
+target_link_libraries(DnD ${CURSES_LIBRARIES})

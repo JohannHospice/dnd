@@ -1,4 +1,3 @@
-#if UNIX
 #include "TerminalInputCurses.h"
 #include <curses.h>
 
@@ -29,4 +28,3 @@ const int TerminalInputCurses::getEnter() const {
 const int TerminalInputCurses::getExit() const {
     return KEY_EXIT;
 }
-#endif

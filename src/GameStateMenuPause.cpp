@@ -21,7 +21,7 @@ void GameStateMenuPause::chooseOption(GameEngine *pEngine) const {
             pEngine->pushState(GameStateMenuInventory::instance());
             break;
         default:
-            pEngine->changeState(GameStateMenuMain::instance());
+            pEngine->popStateUntil(GameStateMenuMain::instance());
             break;
     }
 }

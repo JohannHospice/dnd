@@ -11,12 +11,13 @@ void GameStateMenuInventory::create() {
 }
 
 void GameStateMenuInventory::chooseOption(GameEngine *pEngine) const {
-    if (getPosition() <= getOptionSize()) {
-        _actorHuman->getInventory()
-                ->getItem(getPosition())
-                ->use(_actorHuman);
-    } else
-        pEngine->popState();
+    if (getPosition() < getOptionSize() - 1) {
+        Inventory *inventory = _actorHuman->getInventory();
+        Item *item = inventory->getItem(getPosition());
+        inventory->removeItem(item);
+        item->use(_actorHuman);
+    }
+    pEngine->popState();
 }
 
 void GameStateMenuInventory::setActorHuman(ActorHuman *actorHuman) {

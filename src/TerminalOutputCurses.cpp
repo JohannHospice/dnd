@@ -1,4 +1,3 @@
-#if UNIX
 #include "TerminalOutputCurses.h"
 #include "Map.h"
 #include <ncurses.h>
@@ -23,4 +22,3 @@ void TerminalOutputCurses::print(const Map &map) const {
         printw("\n");
     }
 }
-#endif

@@ -39,7 +39,7 @@ protected:
 
 private:
     std::string _title;
-    int _cursorPosition, _optionSize;
+    int _cursorPosition;
     std::vector<std::string> _options;
 };
 

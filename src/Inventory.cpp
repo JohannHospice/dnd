@@ -28,3 +28,12 @@ const std::vector<Item *> Inventory::getItems() const {
 const int Inventory::getSize() const {
     return m_items.size();
 }
+
+void Inventory::removeItem(Item *pItem) {
+    for (auto iter = m_items.begin(); iter != m_items.end(); ++iter) {
+        if (*iter == pItem) {
+            m_items.erase(iter);
+            break;
+        }
+    }
+}

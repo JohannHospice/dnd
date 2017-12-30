@@ -3,15 +3,14 @@
 
 void GameStateMenu::resume() {
     _cursorPosition = 0;
-    _optionSize = _options.size();
 }
 
 void GameStateMenu::handleEvent(GameEngine *game, TerminalInput *input) {
     int i = input->input();
     if (i == input->getUp())
-        _cursorPosition = (_cursorPosition + 1) % getOptionSize();
-    else if (i == input->getDown())
         _cursorPosition = abs(_cursorPosition - 1) % getOptionSize();
+    else if (i == input->getDown())
+        _cursorPosition = (_cursorPosition + 1) % getOptionSize();
     else if (i == input->getEnter() || i == input->getRight())
         chooseOption(game);
     else if (i == input->getExit() || i == input->getLeft())
@@ -46,7 +45,9 @@ void GameStateMenu::addOption(const char *option) {
     _options.emplace_back(option);
 }
 
-void GameStateMenu::dispose() {}
+void GameStateMenu::dispose() {
+    _options.clear();
+}
 
 void GameStateMenu::pause() {}
 

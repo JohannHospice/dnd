@@ -36,6 +36,8 @@ public:
         _running = false;
     }
 
+    void popStateUntil(GameState *state);
+
 private:
     std::vector<GameState *> _gameStates;
     bool _running;

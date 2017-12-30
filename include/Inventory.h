@@ -28,6 +28,8 @@ public:
 
     const int getSize() const;
 
+    void removeItem(Item *pItem);
+
 protected:
 
 private:
