@@ -8,20 +8,13 @@
 GameStateMenuOver GameStateMenuOver::_self;
 
 void GameStateMenuOver::create() {
-    _optionSize = 2;
-    _title = "Game over";
-    _options.emplace_back("restart last save");
-    _options.emplace_back("return to menu");
+    setTitle("Game over");
+    addOption("restart last save");
+    addOption("return to menu");
 }
 
-void GameStateMenuOver::dispose() {}
-
-void GameStateMenuOver::pause() {}
-
-void GameStateMenuOver::update(GameEngine *game) {}
-
 void GameStateMenuOver::chooseOption(GameEngine *game) const {
-    switch (_cursorPosition) {
+    switch (getPosition()) {
         case 0:
             GameStatePlay::instance()->restore(_memento);
             game->changeState(GameStatePlay::instance());

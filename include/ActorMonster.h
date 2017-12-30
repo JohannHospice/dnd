@@ -15,8 +15,6 @@ public:
 
     ActorMonster(const std::string &name, Statistic *statistic);
 
-    ActorMonster(const std::string &name, Statistic *statistic, CapsuleItem *item);
-
     ~ActorMonster() override;
 
     Item *getItem() {

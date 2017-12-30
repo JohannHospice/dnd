@@ -1,5 +1,5 @@
-#ifndef GAMELISTENER_H
-#define GAMELISTENER_H
+#ifndef DND_GAMESTATE_H
+#define DND_GAMESTATE_H
 
 #include "GameEngine.h"
 
@@ -25,4 +25,4 @@ protected:
     GameState() {}
 };
 
-#endif // GAMELISTENER_H
+#endif // DND_GAMESTATE_H

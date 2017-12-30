@@ -3,17 +3,12 @@
 
 #include <utility>
 
-Actor::Actor(Stage *stage, const std::string &name, Statistic *statistic) : Dynamic(stage), _name(std::move(name)),
-                                                                            _statistic(statistic) {
-    _state = new ActorStateDirection();
-    _life = statistic->getLife();
-}
+Actor::Actor(const std::string &name, Statistic *statistic) :
+        _name(name),
+        _statistic(statistic),
+        _life(statistic->getLife()),
+        _state(new ActorStateDirection()) {}
 
-
-Actor::Actor(const std::string &name, Statistic *statistic) : _name(std::move(name)), _statistic(statistic) {
-    _state = new ActorStateDirection();
-    _life = statistic->getLife();
-}
 
 const ActorStateDirection::Direction Actor::getDirection() const {
     return _state->getState();
@@ -39,7 +34,6 @@ const bool Actor::hurt(int damage) {
     _life -= damage;
     if (_life <= 0) {
         _life = 0;
-        removeFromStage();
     }
     return true;
 }

@@ -1,14 +1,14 @@
 #include <ActorHuman.h>
 #include "Stage.h"
-#include "VisitorDynamicUpdate.h"
+#include "VisitorDynamicUpdateStage.h"
 
-Stage::Stage(Map *pMap) : _map(pMap) {}
+Stage::Stage(Map *pMap, Vector *entry) : _map(pMap), _entry(entry) {}
 
 Stage::~Stage() {}
 
 void Stage::update() {
     for (auto actor: _actors)
-        actor->accept(VisitorDynamicUpdate(this));
+        actor->accept(VisitorDynamicUpdateStage(this));
 }
 
 void Stage::setMap(Map *map) {

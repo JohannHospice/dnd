@@ -18,12 +18,29 @@ public:
 
     void render(GameEngine *game, TerminalOutput *pIO) override;
 
+    void create() override = 0;
+
+    void dispose() override;
+
+    void pause() override;
+
+    void update(GameEngine *game) override;
+
 protected:
-    int _cursorPosition, _optionSize;
-    std::string _title;
-    std::vector<std::string> _options;
-private:
+    const int getPosition() const;
+
+    const int getOptionSize() const;
+
+    void setTitle(const char *title);
+
+    void addOption(const char *option);
+
     virtual void chooseOption(GameEngine *pEngine) const = 0;
+
+private:
+    std::string _title;
+    int _cursorPosition, _optionSize;
+    std::vector<std::string> _options;
 };
 
 

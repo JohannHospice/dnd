@@ -1,6 +1,6 @@
 #include <cstring>
 #include "GameStatePlay.h"
-#include "GameStatePause.h"
+#include "GameStateMenuPause.h"
 #include "GameStateMenuOver.h"
 
 GameStatePlay GameStatePlay::_self;
@@ -26,9 +26,10 @@ void GameStatePlay::handleEvent(GameEngine *game, TerminalInput *input) {
     if (i == input->getExit()) {
         game->popState();
         game->quit();
-    } else if (i == input->getEnter())
-        game->changeState(GameStatePause::instance());
-    else if (i == input->getUp())
+    } else if (i == input->getEnter()) {
+        GameStateMenuPause::instance()->setActorHuman(_actorHuman);
+        game->changeState(GameStateMenuPause::instance());
+    } else if (i == input->getUp())
         _actorHuman->moveUp(getActiveStage()->getMap());
     else if (i == input->getDown())
         _actorHuman->moveDown(getActiveStage()->getMap());

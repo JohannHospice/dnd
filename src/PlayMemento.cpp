@@ -50,7 +50,7 @@ PlayMemento *PlayMemento::newGame() {
             ->setCaseStair(0, 3, 6, 1)
             ->build();
 
-    auto *stage = new Stage(map);
+    auto *stage = new Stage(map, new Vector(1, 1));
     stage->add(human, Vector(1, 1));
     stage->add(new ActorMonster("deprived", FactoryStatistic::makeWarrior(), FactoryItem::makePotion(),
                                 new BehaviorRandom()), Vector(4, 4));

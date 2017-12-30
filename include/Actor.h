@@ -10,8 +10,6 @@ class Map;
 
 class Actor : public Dynamic {
 public:
-    Actor(Stage *stage, const std::string &name, Statistic *statistic);
-
     Actor(const std::string &name, Statistic *statistic);
 
     virtual void update(Map *map) = 0;
@@ -30,7 +28,6 @@ public:
 
     const bool isAlive() const;
 
-
     const ActorStateDirection::Direction getDirection() const;
 
     const bool changeState(ActorStateDirection::Direction);
@@ -46,7 +43,6 @@ public:
     const int getLife() const;
 
 protected:
-
     int _life;
     std::string _name;
     Statistic *_statistic;

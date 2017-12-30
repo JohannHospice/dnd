@@ -24,3 +24,7 @@ Item *Inventory::getItem(int i) const {
 const std::vector<Item *> Inventory::getItems() const {
     return m_items;
 }
+
+const int Inventory::getSize() const {
+    return m_items.size();
+}

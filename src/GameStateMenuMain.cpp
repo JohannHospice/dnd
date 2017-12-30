@@ -4,14 +4,13 @@
 GameStateMenuMain GameStateMenuMain::_self;
 
 void GameStateMenuMain::create() {
-    _title = "Dungeon and dragon";
-    _options.emplace_back("play");
-    _options.emplace_back("exit");
-    _optionSize = 2;
+    setTitle("Dungeon and dragon");
+    addOption("play");
+    addOption("exit");
 }
 
 void GameStateMenuMain::chooseOption(GameEngine *game) const {
-    switch (_cursorPosition) {
+    switch (getPosition()) {
         case 0:
             // todo load or new memento
             GameStatePlay::instance()->restore(PlayMemento::newGame());
@@ -23,8 +22,3 @@ void GameStateMenuMain::chooseOption(GameEngine *game) const {
     }
 }
 
-void GameStateMenuMain::dispose() {}
-
-void GameStateMenuMain::pause() {}
-
-void GameStateMenuMain::update(GameEngine *game) {}

@@ -1,7 +1,3 @@
-//
-// Created by karibukai on 26/12/17.
-//
-
 #include "VisitorDynamicItem.h"
 
 VisitorDynamicItem::VisitorDynamicItem(CapsuleItem *item) {
@@ -13,8 +9,8 @@ const bool VisitorDynamicItem::visit(CapsuleItem *item) const {
 }
 
 const bool VisitorDynamicItem::visit(ActorHuman *actorHuman) const {
-    if (actorHuman->addItem(_item->take())) {
-        _item->removeFromStage();
+    if (actorHuman->addItem(_item->getItem())) {
+        _item->setItem(nullptr);
         return true;
     }
     return false;

@@ -9,7 +9,7 @@
 
 class Stage {
 public:
-    Stage(Map *pMap);
+    Stage(Map *pMap, Vector *entry);
 
     virtual ~Stage();
 
@@ -34,6 +34,7 @@ private:
     std::vector<Dynamic *> _actors;
 
     Map *_map;
+
     Vector *_entry;
 };
 

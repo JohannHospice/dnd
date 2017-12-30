@@ -1,6 +1,3 @@
-//
-// Created by karibukai on 29/12/17.
-//
 
 #ifndef DND_ITEMPOTION_H
 #define DND_ITEMPOTION_H

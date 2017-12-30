@@ -13,15 +13,7 @@ class GameStateMenuMain : public GameStateMenu {
 public:
     void create() override;
 
-    void dispose() override;
-
-    void pause() override;
-
-    void update(GameEngine *game) override;
-
-    static GameStateMenuMain *instance() {
-        return &_self;
-    }
+    static GameStateMenuMain *instance() { return &_self; }
 
 private:
     static GameStateMenuMain _self;

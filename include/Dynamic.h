@@ -11,8 +11,6 @@ class Stage;
 
 class Dynamic : public Characterisable {
 public:
-    explicit Dynamic(Stage *stage);
-
     Dynamic();
 
     virtual ~Dynamic();
@@ -23,14 +21,8 @@ public:
 
     virtual const bool accept(const VisitorDynamic &pDynamic) = 0;
 
-    void removeFromStage();
-
 private:
-    Stage *_stage;
-
     Vector *_vector = new Vector();
-
-    void setStage(Stage *stage);
 };
 
 #endif // DYNAMIC_H

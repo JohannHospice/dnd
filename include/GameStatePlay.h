@@ -1,5 +1,5 @@
-#ifndef STATEPLAY_H
-#define STATEPLAY_H
+#ifndef DND_GAMESTATEPLAY_H
+#define DND_GAMESTATEPLAY_H
 
 #include "GameState.h"
 #include "PlayMemento.h"
@@ -37,15 +37,19 @@ public:
     void changeStage(const int stair);
 
 private:
-    GameStatePlay() = default;
-
-    static GameStatePlay _self;
 
     Stage *getActiveStage();
 
     const char *getInfoStage() const;
 
     char *getInfo(Actor *actor) const;
+
+    void setActiveStage(const int stair);
+
+    GameStatePlay() = default;
+
+    static GameStatePlay _self;
+
 
     ActorHuman *_actorHuman = nullptr;
 
@@ -56,8 +60,6 @@ private:
     bool _win = false, _loose = false;
 
     PlayMemento *_lastMemento;
-
-    void setActiveStage(const int stair);
 };
 
-#endif // STATEPLAY_H
+#endif // DND_GAMESTATEPLAY_H

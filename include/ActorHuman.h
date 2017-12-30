@@ -13,11 +13,13 @@ public:
 
     void update(Map *map) override;
 
-    const bool accept(const VisitorDynamic &pDynamic) override;
+    const bool accept(const VisitorDynamic &visitor) override;
 
     const bool addItem(Item *pItem);
 
     void use(Item *item);
+
+    Inventory *getInventory() const;
 
 protected:
 

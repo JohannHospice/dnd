@@ -8,8 +8,8 @@ const bool ActorHuman::addItem(Item *pItem) {
     return m_inventory->addItem(pItem);
 }
 
-const bool ActorHuman::accept(const VisitorDynamic &pDynamic) {
-    return pDynamic.visit(this);
+const bool ActorHuman::accept(const VisitorDynamic &visitor) {
+    return visitor.visit(this);
 }
 
 ActorHuman::ActorHuman(const std::string &name, Statistic *statistic) : Actor(name, statistic) {
@@ -18,5 +18,9 @@ ActorHuman::ActorHuman(const std::string &name, Statistic *statistic) : Actor(na
 
 void ActorHuman::use(Item *item) {
     item->use(this);
+}
+
+Inventory *ActorHuman::getInventory() const {
+    return m_inventory;
 }
 

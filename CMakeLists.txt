@@ -49,7 +49,7 @@ add_executable(DnD
         include/TerminalInputGnome.h
         include/TerminalCurses.h
         include/CaseFloor.h
-        include/GameStatePause.h
+        include/GameStateMenuPause.h
         src/Actor.cpp
         src/ActorHuman.cpp
         src/ActorStateDirection.cpp
@@ -91,7 +91,7 @@ add_executable(DnD
         src/TerminalOutputGnome.cpp
         src/TerminalInputGnome.cpp
         src/TerminalCurses.cpp
-        src/GameStatePause.cpp
+        src/GameStateMenuPause.cpp
         src/Spawner.cpp
         src/FactoryStatistic.cpp
         include/FactoryStatistic.h
@@ -103,8 +103,8 @@ add_executable(DnD
         include/BehaviorRandom.h
         src/MapPieceCorridor.cpp
         include/MapPieceCorridor.h
-        src/VisitorDynamicUpdate.cpp
-        include/VisitorDynamicUpdate.h
+        src/VisitorDynamicUpdateStage.cpp
+        include/VisitorDynamicUpdateStage.h
         src/GameStateMenuOver.cpp
         include/GameStateMenuOver.h
         src/FactoryItem.cpp
@@ -114,6 +114,6 @@ add_executable(DnD
         src/GameStateMenu.cpp
         include/GameStateMenu.h
         src/VisitorDynamicInteractHuman.cpp
-        include/VisitorDynamicInteractHuman.h src/Item.cpp include/Item.h)
+        include/VisitorDynamicInteractHuman.h src/Item.cpp include/Item.h src/GameStateMenuInventory.cpp include/GameStateMenuInventory.h)
 
 # target_link_libraries(DnD ${CURSES_LIBRARIES})

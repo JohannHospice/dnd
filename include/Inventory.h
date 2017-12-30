@@ -26,6 +26,8 @@ public:
 
     unsigned long size() const;
 
+    const int getSize() const;
+
 protected:
 
 private:

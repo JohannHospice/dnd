@@ -7,7 +7,7 @@
 
 class CapsuleItem : public Dynamic {
 public:
-    CapsuleItem(Stage *stage, Item *item);
+    explicit CapsuleItem(Item *item);
 
     virtual ~CapsuleItem();
 
@@ -15,10 +15,15 @@ public:
 
     const bool accept(const VisitorDynamic &visitor) override;
 
-    Item *take();
+    const bool empty() const;
+
+    Item *getItem() const;
+
+    void setItem(Item *item);
 
 private:
     Item *_item;
+
 };
 
 #endif // ITEMCAPSULE_H

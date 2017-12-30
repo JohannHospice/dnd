@@ -4,9 +4,7 @@
 
 CapsuleItem::~CapsuleItem() {}
 
-CapsuleItem::CapsuleItem(Stage *stage, Item *item) : Dynamic(stage) {
-    _item = item;
-}
+CapsuleItem::CapsuleItem(Item *item) : _item(item) {}
 
 const bool CapsuleItem::accept(const VisitorDynamic &visitor) {
     return visitor.visit(this);
@@ -16,7 +14,14 @@ const char CapsuleItem::getChar() const {
     return 'I';
 }
 
-Item *CapsuleItem::take() {
-    removeFromStage();
+const bool CapsuleItem::empty() const {
+    return _item == nullptr;
+}
+
+Item *CapsuleItem::getItem() const {
     return _item;
+}
+
+void CapsuleItem::setItem(Item *item) {
+    _item = item;
 }

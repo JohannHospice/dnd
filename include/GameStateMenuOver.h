@@ -11,12 +11,6 @@ public:
 
     void create() override;
 
-    void dispose() override;
-
-    void pause() override;
-
-    void update(GameEngine *game) override;
-
     static GameStateMenuOver *instance() {
         return &_self;
     }
