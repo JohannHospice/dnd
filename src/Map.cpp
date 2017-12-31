@@ -49,6 +49,10 @@ void Map::setCase(int x, int y, Case *c) {
     _cases[x][y] = c;
 }
 
+void Map::setCase(const Vector &vector, Case *c) {
+    _cases[vector.getX()][vector.getY()] = c;
+}
+
 Case *Map::getCase(const Vector &vector) {
     return _cases[vector.getX()][vector.getY()];
 }
@@ -79,7 +83,7 @@ const bool Map::removeContent(const Vector &source) {
 
 
 Case ***Map::init(int sizeX, int sizeY) {
-    Case ***_cases = new Case **[sizeX];
+    auto ***_cases = new Case **[sizeX];
     for (int i = 0; i < sizeX; ++i)
         _cases[i] = new Case *[sizeY];
     return _cases;

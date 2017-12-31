@@ -63,6 +63,8 @@ protected:
     Case ***_cases;
 
     Case ***init(int sizeX, int sizeY);
+
+    void setCase(const Vector &vector, Case *c);
 };
 
 

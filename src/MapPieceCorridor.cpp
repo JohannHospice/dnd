@@ -1,22 +1,19 @@
-//
-// Created by karibukai on 28/12/17.
-//
-
 #include <CaseFloor.h>
 #include "MapPieceCorridor.h"
 
-MapPieceCorridor::MapPieceCorridor(std::vector<Vector *> vectors, int originX, int originY) : MapPiece() {
+MapPieceCorridor::MapPieceCorridor(int originX, int originY, const Vector *vectors, int size) {
     _originX = originX;
     _originY = originY;
-    int sizeX = 0, sizeY = 0;
-    for (auto v: vectors) {
-        if (v->getX() > sizeX)
-            sizeX = v->getX();
-        if (v->getY() > sizeY)
-            sizeY = v->getY();
+    _sizeX = 0, _sizeY = 0;
+    for (int i = 0; i < size; i++) {
+        int x = vectors[i].getX() + 1, y = vectors[i].getY() + 1;
+        if (_sizeX < x)
+            _sizeX = x;
+        if (_sizeY < y)
+            _sizeY = y;
     }
-    init(sizeX, sizeY);
+    _cases = init(_sizeX, _sizeY);
 
-    for (auto v: vectors)
-        setCase(v->getX(), v->getY(), new CaseFloor(CaseFloor::CORRIDOR));
+    for (int i = 0; i < size; i++)
+        setCase(vectors[i], new CaseFloor(CaseFloor::CORRIDOR));
 }

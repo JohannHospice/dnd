@@ -2,6 +2,7 @@
 #include "MapPieceCorridor.h"
 #include <MapPieceRoom.h>
 #include <CaseStair.h>
+#include <CaseFloor.h>
 
 MapBuilder *MapBuilder::addRoom(int sizeX, int sizeY, int originX, int originY) {
     if (_sizeX < sizeX + originX)
@@ -12,8 +13,8 @@ MapBuilder *MapBuilder::addRoom(int sizeX, int sizeY, int originX, int originY) 
     return this;
 }
 
-MapBuilder *MapBuilder::addCorridor(const std::vector<Vector *> &vectors, int originX, int originY) {
-    _pieces.push_back(new MapPieceCorridor(vectors, originX, originY));
+MapBuilder *MapBuilder::addCorridor(int originX, int originY, const Vector *vectors, int size) {
+    _pieces.push_back(new MapPieceCorridor(originX, originY, vectors, size));
     return this;
 }
 
@@ -30,5 +31,10 @@ Map *MapBuilder::build() const {
 
     map->fill();
     return map;
+}
+
+MapBuilder *MapBuilder::setCaseFloor(int piece, int x, int y) {
+    _pieces.at(piece)->setCase(x, y, new CaseFloor(CaseFloor::ROOM));
+    return this;
 }
 

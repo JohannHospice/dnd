@@ -30,6 +30,7 @@ private:
     ActorHuman *_actorHuman;
     std::vector<Stage *> _stages;
     int _activeStage;
+
 };
 
 #endif // PLAYMEMENTO_H

@@ -2,6 +2,7 @@
 #define DND_ITEM_H
 
 #include <string>
+
 class Actor;
 
 class Item {

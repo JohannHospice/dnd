@@ -28,3 +28,7 @@ const bool ActorMonster::accept(const VisitorDynamic &visitor) {
 const bool ActorMonster::hasItem() const {
     return _item != nullptr;
 }
+
+ActorMonster *ActorMonster::clone() const {
+    return new ActorMonster(_name, _statistic, _item, _behavior);
+}

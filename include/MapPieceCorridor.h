@@ -11,7 +11,7 @@
 class MapPieceCorridor : public MapPiece {
 
 public:
-    MapPieceCorridor(std::vector<Vector *> vectors, int originX, int originY);
+    MapPieceCorridor(int originX, int originY, const Vector *vectors, int size);
 };
 
 

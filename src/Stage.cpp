@@ -45,3 +45,7 @@ const Vector *Stage::entry() {
     return _entry;
 }
 
+bool Stage::addAtEntry(Dynamic *aDynamic) {
+    return add(aDynamic, *entry());
+}
+

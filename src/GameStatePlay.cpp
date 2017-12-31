@@ -23,10 +23,7 @@ Stage *GameStatePlay::getActiveStage() { return _stages.at(_activeStage); }
 
 void GameStatePlay::handleEvent(GameEngine *game, TerminalInput *input) {
     int i = input->input();
-    if (i == input->getExit()) {
-        game->popState();
-        game->quit();
-    } else if (i == input->getEnter()) {
+    if (i == input->getEnter()) {
         GameStateMenuPause::instance()->setActorHuman(_actorHuman);
         game->pushState(GameStateMenuPause::instance());
     } else if (i == input->getUp())

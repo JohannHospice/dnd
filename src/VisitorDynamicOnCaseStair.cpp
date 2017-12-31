@@ -2,7 +2,6 @@
 // Created by karibukai on 26/12/17.
 //
 
-#include <GameState.h>
 #include <GameStatePlay.h>
 #include "VisitorDynamicOnCaseStair.h"
 #include "VisitorDynamicInteract.h"

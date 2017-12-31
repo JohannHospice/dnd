@@ -27,6 +27,8 @@ public:
 
     bool add(Dynamic *aDynamic, const Vector &vector);
 
+    bool addAtEntry(Dynamic *aDynamic);
+
     const Vector *entry();
 
 private:

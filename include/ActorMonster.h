@@ -31,7 +31,10 @@ public:
 
     const bool hasItem() const;
 
+    ActorMonster *clone() const;
+
 private:
+
     Item *_item;
 
     Behavior *_behavior;

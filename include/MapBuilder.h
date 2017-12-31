@@ -17,12 +17,13 @@ public:
 
     MapBuilder *setCaseStair(int piece, int x, int y, int stair);
 
-    MapBuilder *addCorridor(const std::vector<Vector *> &vectors, int originX, int originY);
+    MapBuilder *addCorridor(int originX, int originY, const Vector vectors[], int size);
+
+    MapBuilder *setCaseFloor(int piece, int x, int y);
 
 private:
 
     std::vector<MapPiece *> _pieces;
-
     int _sizeX, _sizeY;
 };
 
