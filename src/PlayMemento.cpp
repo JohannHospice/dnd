@@ -40,14 +40,14 @@ void PlayMemento::setActiveStage(int _activeStage) {
 
 PlayMemento *PlayMemento::newGame() {
     auto *builder = new MapBuilder();
+
     // generator
     auto *human = new ActorHuman("human", FactoryStatistic::makeKnight());
-    ActorMonster monster = ActorMonster(
+    Spawner *spawner = new Spawner(ActorMonster(
             "deprived",
             FactoryStatistic::makeDeprived(),
             FactoryItem::makePotion(),
-            new BehaviorRandom());
-    Spawner *spawner = new Spawner(monster);
+            new BehaviorRandom()));
 
     // stage 0 generation
     const Vector corridor0[3] = {Vector(0, 0), Vector(0, 1), Vector(0, 2)};
@@ -62,27 +62,22 @@ PlayMemento *PlayMemento::newGame() {
                                      ->setCaseFloor(1, 4, 2)
                                      ->build(), new Vector(1, 1));
 
+    builder->clear();
+    stage0->addAtEntry(human);
     for (const auto &v: {Vector(4, 4), Vector(6, 5), Vector(2, 8), Vector(8, 3), Vector(5, 7), Vector(20, 9),
                          Vector(2, 4)})
         stage0->add(spawner->spawn(), v);
-    stage0->addAtEntry(human);
 
     // stage 1 generation
-    const Vector corridor1[3] = {Vector(1, 0), Vector(2, 0), Vector(3, 0)};
     auto *stage1 = new Stage(builder
                                      ->addRoom(6, 6, 3, 3)
                                      ->addRoom(5, 5, 3, 9)
-                                     ->addCorridor(5, 10, corridor1, 3)// use corridorBuilder
                                      ->setCaseStair(0, 4, 4, 0)
-                                     ->setCaseFloor(0, 5, 2)
-                                     ->setCaseFloor(0, 0, 0)
-                                     ->setCaseFloor(1, 0, 0)
-                                     ->build(), new Vector(11, 11));
-    /*
-    for (const auto &v: {Vector(4, 4), Vector(6, 5), Vector(2, 8), Vector(8, 3), Vector(5, 7), Vector(20, 9),
-                         Vector(2, 4)})
-        stage1->add(spawner->spawn(), v);
-*/
+                                     ->setCaseFloor(0, 2, 5)
+                                     ->setCaseFloor(1, 2, 0)
+                                     ->build(), new Vector(5, 5));
+    builder->clear();
+
     //adding stages
     std::vector<Stage *> stages;
     stages.push_back(stage0);

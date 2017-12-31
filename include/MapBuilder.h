@@ -21,6 +21,7 @@ public:
 
     MapBuilder *setCaseFloor(int piece, int x, int y);
 
+    void clear();
 private:
 
     std::vector<MapPiece *> _pieces;

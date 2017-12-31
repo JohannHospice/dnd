@@ -38,3 +38,9 @@ MapBuilder *MapBuilder::setCaseFloor(int piece, int x, int y) {
     return this;
 }
 
+void MapBuilder::clear() {
+    _pieces.clear();
+    _sizeY = 0;
+    _sizeX = 0;
+}
+

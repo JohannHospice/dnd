@@ -12,6 +12,7 @@ VisitorDynamicOnCaseStair::VisitorDynamicOnCaseStair(CaseStair *pStair) {
 
 const bool VisitorDynamicOnCaseStair::visit(ActorHuman *actorHuman) const {
     if (visitByDynamic(actorHuman)) {
+
         GameStatePlay::instance()->changeStage(_stair->getStair());
         return true;
     }
