@@ -114,6 +114,6 @@ add_executable(DnD
         src/GameStateMenu.cpp
         include/GameStateMenu.h
         src/VisitorDynamicInteractHuman.cpp
-        include/VisitorDynamicInteractHuman.h src/Item.cpp include/Item.h src/GameStateMenuInventory.cpp include/GameStateMenuInventory.h include/Spawner.h src/PlayMementoManager.cpp include/PlayMementoManager.h)
+        include/VisitorDynamicInteractHuman.h src/Item.cpp include/Item.h src/GameStateMenuInventory.cpp include/GameStateMenuInventory.h include/Spawner.h src/PlayMementoManager.cpp include/PlayMementoManager.h src/VisitorCaseIsWall.cpp include/VisitorCaseIsWall.h)
 
 target_link_libraries(DnD ${CURSES_LIBRARIES})

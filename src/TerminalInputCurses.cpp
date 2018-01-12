@@ -22,9 +22,9 @@ const int TerminalInputCurses::getRight() const {
 }
 
 const int TerminalInputCurses::getEnter() const {
-    return KEY_ENTER;
+    return 'p'; // KEY_ENTER;
 }
 
 const int TerminalInputCurses::getExit() const {
-    return KEY_EXIT;
+    return 'e'; // KEY_EXIT;
 }
